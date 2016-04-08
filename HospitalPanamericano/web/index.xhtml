@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+ <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Inicio</title>
+            </f:facet>
+        </h:head>
+        <h:body style="background-image: url(recursos/indice.jpg)">
+          <h:form>
+              <h2 style="margin-left:380px; margin-top:200px; color: white; font-family: copperplate gothic light">
+                <br>Has click en la imagen para ingresar si ya</br>
+                    estas registrado, sino lo estas, presiona el
+                <br>botón " registrate ".</br> </h2>
+                <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
+                    <p:graphicImage style="margin-left:620px; margin-top:auto; border-radius: 10%" url="/recursos/login.jpg"   />
+                </h:outputLink>
+              <p:button style="margin-left:650px; margin-top:auto" value="Registrate"/>
+                  
+                        <p:growl id="growl" sticky="true" showDetail="true" life="3000"/>
+                        <p:dialog header="Login" widgetVar="dlg" resizable="false">
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <h:outputLabel for="usuario" value="Usuario: "/>
+                                <p:inputText id="usuario" value="#{login.usuario}" required="true" label="username"/>
+                                <h:outputLabel for="password" value="password:" />
+                                <p:password id="password" value="#{login.password}" required="true" label="password" />
+                                
+                                <f:facet name="footer">
+                                    <p:commandButton value="login" update="growl" actionListener="#{login.login}"
+                                                     oncomplete="handleLoginRequest (xhr, status, args)" />
+                                </f:facet>
+                            </h:panelGrid>
+                        </p:dialog>
+                
+            </h:form>
+                 
+           <script type="text/javascript" >
+                funtion handleLoginRequest (xhr, status, args) {
+                if(args.validationFailed || !args.loggedIn) {
+                PF('dlg').jq.effect("shake", {times:5}, 100);
+                }
+                else {
+                    PF('dlg').hide();
+                    $('#loginLink').fadeOut();
+                }
+           }
+            </script>
+       </h:body>
+         
+   </f:view>
+</html>
+
