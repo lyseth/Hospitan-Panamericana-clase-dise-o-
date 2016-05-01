@@ -30,12 +30,12 @@
                     <!-- <p:layoutUnit position="south" size="50" style="border:none">
                        </p:layoutUnit>-->
 
-                     <p:layoutUnit position="west" style="min-width:330px; max-width:1500px; border-right-color:black; border-bottom:none; border-top:none " >
+                     <p:layoutUnit position="west" style="min-width:100px; max-width:320px; border-right-color:black; border-bottom:none; border-top:none " >
                         <center>
-                            <p:commandButton value="Peso" actionListener="#{Medidas.getpeso}" style="width:70%; font-size: 15px; margin-bottom: 4%;border-radius:10px 10px 0px 0px" immediate="true"/>
-                            <p:commandButton value="Nivel Colesterol" actionListener="#{Medidas.getnivelColesterol}" style="width:70%; font-size: 15px; margin-bottom: 4%;border-radius:10px 10px 0px 0px" immediate="true"/>
+                            <p:commandButton value="Peso" actionListener="#{Medidas.getpeso}" style="width:60%; font-size: 15px; margin-bottom: 4%;border-radius:10px 10px 0px 0px" immediate="true"/>
+                            <p:commandButton value="Nivel Colesterol" actionListener="#{Medidas.getnivelColesterol}" style="width:60%; font-size: 15px; margin-bottom: 4%;border-radius:10px 10px 0px 0px" immediate="true"/>
 
-                            <h:panelGrid columns="2" cellpadding="5" style="margin-top:20%;margin-bottom: 15%" >
+                            <h:panelGrid columns="2" cellpadding="5" style="margin-top:18%;margin-bottom: 13%" >
                                 <p:calendar value="#{calendario.Calendario(calendar)}" mode="inline" />
                             </h:panelGrid>
                             <p:graphicImage url="/recursos/facebook.png" style="width: 10%; height: 10% "/>
@@ -50,12 +50,21 @@
                         <h1 style="margin-top:-5px;margin-left:100px"> Mis Mediciones</h1>
                         
                          
-                         <p:chart type="line" model="#{chartView.animatedModel1}" style="width:500px;" />
+                       <p:chart type="line" model="#{chartView.dateModel}" style="width:600px; margin-left:25px;"/>
                          <br />
+                       
                          <br />
-                         <p:chart type="line" model="#{chartView.animatedModel2}" style="width:500px;" />
+                          <p style="margin-left:5%">
+                            Seleccione su peso:</p>
+                        <select name="horario" style="width: 15%;margin-left:7%">
+                            <option selected="componente1"></option>  
+                            <option> 50 </option>
+                            <option> 54 </option>
+                            <option> 60 </option>
+                        </select>
+                         <p:commandButton value="Actualizar" actionListener="#{Medidas.getpeso}" style="width:15%; font-size: 15px; margin-bottom: 4%;border-radius:10px 10px 10px 10px; margin-left:25px;" immediate="true"/>
                         
-                        <table style="background-color:#95a1f7;padding:2%; margin-left:56%;position: fixed; margin-top:-30%; border-radius:25px">
+                        <table style="background-color:#95a1f7;padding:2%; margin-left:56%;position: fixed; margin-top:-20%; border-radius:25px">
                             <tr>
                                 <th colspan="2" style="padding-bottom:3% ">
                                     Línea de atención <br/>al usuario
