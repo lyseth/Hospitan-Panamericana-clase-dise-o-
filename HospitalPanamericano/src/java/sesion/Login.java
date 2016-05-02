@@ -1,9 +1,14 @@
 package sesion;
- import javax.faces.application.FacesMessage;
+
+import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.servlet.http.HttpServletRequest;
+import negocio.AutenticacionBeanLocal;
 import org.primefaces.context.RequestContext;
+
 /**
  *
  * @author DT8
@@ -11,8 +16,11 @@ import org.primefaces.context.RequestContext;
 
 @ManagedBean
 public class Login {
+
     private String usuario;
     private String password;
+    @EJB
+    private AutenticacionBeanLocal autenticacionBean;
 
     public String getUsuario() {
         return usuario;
@@ -29,21 +37,23 @@ public class Login {
     public void setPassword(String password) {
         this.password = password;
     }
-    public void login(ActionEvent event){
-        RequestContext context =RequestContext.getCurrentInstance();
-        FacesMessage message = null;
-        boolean loggedIn = false;
-         
-        if(usuario != null && usuario.equals("admin") && password != null && password.equals("admin")) {
-            loggedIn = true;
-            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "¡Bienvienido!", usuario);
-        } else {
-            loggedIn = false;
-            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "No son validos los datos");
-        }
-         
-        FacesContext.getCurrentInstance().addMessage(null, message);
-        context.addCallbackParam("loggedIn", loggedIn);
-    }   
-}
 
+    public String login(ActionEvent event) { //cambiar a String y borrar elemento
+
+        RequestContext context = RequestContext.getCurrentInstance();
+        FacesMessage message = null;
+
+        if (autenticacionBean.autenticar(usuario,password)){
+        
+             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "¡Bienvienido!", usuario);
+            return "inicio"; //pagina inicio
+        } else {
+
+            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "No son validos los datos");
+            return "index";
+        }
+
+        //FacesContext.getCurrentInstance().addMessage(null, message);
+        //context.addCallbackParam("loggedIn", loggedIn);
+    }
+}
