@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Registro</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            
+            <h:form> 
+
+            <p:layout fullPage="true">
+                <p:layoutUnit position="west" style="min-width:100px; max-width:210px; border-right-color:black; border-bottom:none; border-top:none " >
+                    <center>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <p:graphicImage url="/recursos/facebook.png" style="width: 20%; height: 20% "/>
+                        <p:graphicImage url="/recursos/twitter.png" style="width: 20%; height: 20%"/>
+                        <p:graphicImage url="/recursos/instagram.png" style="width: 20%; height: 20%"/>
+                        <p:graphicImage url="/recursos/g_plus.png" style="width: 20%; height: 20%"/>
+                    </center>
+                </p:layoutUnit>
+                 <p:layoutUnit position="center"  style="border:none" > 
+                     <br />
+                  <h1 style="margin-top:-5px;margin-left:100px; font-family: Trebuchet MS; "> HOSPITAL PANAMERICANO </h1>
+                   <h2 style="margin-top:-5px;margin-left:100px; font-family: Trebuchet MS; "> Registro </h2>
+                  
+                 
+        <p:messages id="messages"  showDetail="true" autoUpdate="true" /> 
+ 
+        <h:panelGrid columns="4" cellpadding="3" >
+            <h:outputLabel for="txt1" value="Nombres: *" style="font-family: Trebuchet MS;"/>
+            <p:inputText id="txt1" value="#{selectorView.text1}" required="true" label="Nombres">
+                <f:validateLength minimum="2" />
+                
+            </p:inputText>
+            <p:message for="txt1" />
+            <h:outputText value="#{selectorView.text1}" />
+ 
+            <h:outputLabel for="txt2" value="Apellidos: *" style="font-family: Trebuchet MS;" />
+            <p:inputText id="txt2" value="#{selectorView.text2}" required="true" label="Apellidos" />
+            <p:message for="txt2" />
+            <h:outputText value="#{selectorView.text2}" />
+            
+            <h:outputLabel for="txt4" value="Edad: *" style="font-family: Trebuchet MS;" />
+            <p:inputText id="txt4" value="#{selectorView.text4}" required="true" label="Edad" />
+            <p:message for="txt4" />
+            <h:outputText value="#{selectorView.text4}" />
+            
+            <h:outputLabel for="txt7" value="Cedula: *" style="font-family: Trebuchet MS;" />
+            <p:inputText id="txt7" value="#{selectorView.text7}" required="true" label="Cedula" />
+            <p:message for="txt7" />
+            <h:outputText value="#{selectorView.text7}" />
+            
+            <h:outputLabel for="txt5" value="Telefono: * " style="font-family: Trebuchet MS;" />
+            <p:inputText id="txt5" value="#{selectorView.text5}" required="true" label="Telefono" />
+            <p:message for="txt5" />
+            <h:outputText value="#{selectorView.text5}" />
+            
+            <h:outputLabel for="txt6" value="Dirección: *" style="font-family: Trebuchet MS;"/>
+            <p:inputText id="txt6" value="#{selectorView.text6}" required="true" label="Dirección" />
+            <p:message for="txt6" />
+            <h:outputText value="#{selectorView.text6}" />
+            
+            <h:outputLabel for="txt3" value="Ciudad: *" style="font-family: Trebuchet MS;" />
+            <h:selectOneMenu id="txt3" value="#{selectorView.text3}" required="true" label="Ciudad">
+                <f:selectItem itemLabel="Seleccione " itemValue="" noSelectionOption="true" />
+                <f:selectItem itemLabel="Bogotá" itemValue="Bogotá" />
+                <f:selectItem itemLabel="Medellin" itemValue="Medellin" />
+                <f:selectItem itemLabel="Villavicencio" itemValue="Villavicencio" />
+            </h:selectOneMenu>
+            <p:message for="txt3" />
+            <h:outputText value="#{selectorView.text3}" />
+            
+            <h:outputLabel for="txt9" value="Email: *" style="font-family: Trebuchet MS;" />
+            <p:inputText id="txt9" value="#{selectorView.text9}" required="true" label="Email" />
+            <p:message for="txt9" />
+            <h:outputText value="#{selectorView.text9}" />
+           
+            <h:outputLabel for="txt8" value="Nombre de usuario: *" style="font-family: Trebuchet MS;" />
+            <p:inputText id="txt8" value="#{selectorView.text8}" required="true" label="Nombre de usuario" />
+            <p:message for="txt8" />
+            <h:outputText value="#{selectorView.text8}" />
+            
+ 
+            
+        </h:panelGrid>
+    
+ 
+    <h:panelGrid columns="5">
+      
+    </h:panelGrid>
+           
+<p:spacer height="5" />
+ 
+    <h:panelGrid columns="2" id="matchGrid" cellpadding="5">                   
+        <h:outputLabel for="pwd1" value="Contraseña: *" style="font-family: Trebuchet MS;" />
+        <p:password id="pwd1" value="#{password.password5}" match="pwd2" label="Contraseña" feedback="true" required="true" />
+ 
+        <h:outputLabel for="pwd2" value="Confirmar contraseña: *" style="font-family: Trebuchet MS;" />
+        <p:password id="pwd2" value="#{password.password5}" label="Confirmar contraseña" feedback="true" required="true"  />
+    </h:panelGrid>
+ 
+    <p:commandButton style="background-color:#95a1f7;" update="matchGrid" value="Registrar" />
+    
+     <table style="background-color:#95a1f7;padding:2%; margin-left:56%;position: fixed; margin-top:-20%; border-radius:25px">
+                            <tr>
+                                <th colspan="2" style="padding-bottom:3% ">
+                                    Línea de atención <br/>al usuario
+                                </th>
+
+                            </tr>
+                            <tr style="padding-bottom:3%">
+                                <td>
+                                    <p:graphicImage url="/recursos/telefono.png" style=" padding-right:2%;width: 20px; height: 20px "/>
+                                </td>
+                                <td>Línea Nacional<br/>
+                                    5555 55555</td>
+                            </tr>
+                            <tr style="padding-bottom:3%">
+                                <td>
+                                    <p:graphicImage url="/recursos/telefono.png" style="padding-right:2%;width: 20px; height: 20px "/>
+                                </td>
+                                <td>Bogotá<br/>
+                                    3333 33333</td>    
+                            </tr>
+                            <tr style="padding-bottom:3%">
+                                <td>
+                                    <p:graphicImage url="/recursos/calendario.png" style="padding-right:2%;width: 20px; height: 20px "/>
+                                </td>
+                                <td>Solicitar cita<br/>
+                                    4444 44444</td>    
+                            </tr>
+                        </table>
+                        
+                        <h6 style="margin-top:15%; margin-left:35%">Copyright
+                            <p:graphicImage url="/recursos/Copyright.png" style="width: 2%; height: 2% "/> 2016</h6>
+                            
+                    </p:layoutUnit>
+                
+
+               
+
+            </p:layout>
+            </h:form>
+        </h:body>
+
+    </f:view>
+</html>
+

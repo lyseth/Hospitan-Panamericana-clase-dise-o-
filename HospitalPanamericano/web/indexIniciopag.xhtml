@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Inicio</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+             <h:form>  
+
+            <p:layout fullPage="true">
+
+                  <p:layoutUnit position="north" size="60" style="border:none">
+                        <p:breadCrumb style="width: 38%;background-color:#95a1f7; border-radius: 10px;position: absolute; margin-left: 390px">
+                            <p:menuitem value="Inicio" url="index.xhtml" />
+                            <p:menuitem value="Citas" url="#" style="padding:4px; text-decoration:none; " />
+                            <p:menuitem value="Mis Medidas" url="#" style="padding:4px ; text-decoration:none;  " />
+                            <p:menuitem value="Resultados" url="#" style="padding:4px ; text-decoration:none"/>
+                            <p:menuitem value="Historial" url="#" style="padding:4px ; text-decoration:none"/>
+                            <p:menuitem value="Más +" url="#" style="padding:4px ; text-decoration: none"/>
+                        </p:breadCrumb>
+                      <p:graphicImage url="/Recursos/sesion_u.jpg" style="width: 30px; height: 30px; position: absolute;margin-top:8px;margin-left: 1300px  "/>
+
+                    </p:layoutUnit> 
+                   
+
+                    <p:layoutUnit position="west" style="min-width:100px; max-width:330px; border-right-color:black; border-bottom:none; border-top:none " >
+                        <center>
+                           
+                            <h:panelGrid columns="2" cellpadding="5" style="margin-top:20%;margin-bottom: 25%" >
+                                <p:calendar value="#{calendario.Calendario(calendar)}" mode="inline"  />
+                            </h:panelGrid>
+                            <p:graphicImage url="/Recursos/facebook.png" style="width: 10%; height: 10% "/>
+                            <p:graphicImage url="/Recursos/twitter.png" style="width: 10%; height: 10%"/>
+                            <p:graphicImage url="/Recursos/instagram.png" style="width: 10%; height: 10%"/>
+                            <p:graphicImage url="/Recursos/g_plus.png" style="width: 10%; height: 10%"/>
+                        </center>    
+                    </p:layoutUnit> 
+
+                    
+
+                    <p:layoutUnit position="center"  style="border:none" > 
+                        <h1 style="margin-top:-5px;margin-left:100px"> Bienvenido </h1>
+                        <h3 style="margin-top:-2px;margin-left:80px"> "Estamos construyendo la salud del futuro"</h3>
+                        <p:graphicImage url="/Recursos/telemedicina.jpg" style="width:350px; height: 350px; position: relative; margin-left: 20%"/>
+
+                       
+                        
+                     
+                        
+                        <table style="background-color:#95a1f7;padding:2%; margin-left:56%;position: fixed; margin-top:-20%; border-radius:25px">
+                            <tr>
+                                <th colspan="2" style="padding-bottom:3% ">
+                                    Línea de atención <br/>al usuario
+                                </th>
+
+                            </tr>
+                            <tr style="padding-bottom:3%">
+                                <td>
+                                    <p:graphicImage url="/Recursos/telefono.png" style=" padding-right:2%;width: 20px; height: 20px "/>
+                                </td>
+                                <td>Línea Nacional<br/>
+                                    5555 55555</td>
+                            </tr>
+                            <tr style="padding-bottom:3%">
+                                <td>
+                                    <p:graphicImage url="/Recursos/telefono.png" style="padding-right:2%;width: 20px; height: 20px "/>
+                                </td>
+                                <td>Bogotá<br/>
+                                    3333 33333</td>    
+                            </tr>
+                            <tr style="padding-bottom:3%">
+                                <td>
+                                    <p:graphicImage url="/Recursos/calendario.png" style="padding-right:2%;width: 20px; height: 20px "/>
+                                </td>
+                                <td>Solicitar cita<br/>
+                                    4444 44444</td>    
+                            </tr>
+                        </table>
+                        
+                        <h6 style="margin-top:15%; margin-left:35%">Copyright
+                            <p:graphicImage url="/recursos/Copyright.png" style="width: 2%; height: 2% "/> 216</h6>
+                    </p:layoutUnit> 
+
+                </p:layout>
+            </h:form>
+
+
+        </h:body>
+
+    </f:view>
+</html>
+
