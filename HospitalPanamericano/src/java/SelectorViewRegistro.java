@@ -1,91 +1,94 @@
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import negocio.RegistrarBeanLocal;
 
 @ManagedBean
 
 public class SelectorViewRegistro {
-     
-    private String text1;   
-    private String text2;
-    private String text3;
-    private int text4;
-    private int text5;
-    private String text6;
-    private int text7;
-    private String text8;
-    private String text9;
-    
- 
-    public String getText1() {
-        return text1;
-    }
- 
-    public void setText1(String text1) {
-        this.text1 = text1;
-    }
- 
-    public String getText2() {
-        return text2;
-    }
- 
-    public void setText2(String text2) {
-        this.text2 = text2;
-    }
- 
-    public String getText3() {
-        return text3;
-    }
- 
-    public void setText3(String text3) {
-        this.text3 = text3;
+
+    private String nombres;
+    private String apellidos;
+    private int edad;
+    private int cedula;
+    private int telefono;
+    private String direccion;
+    private String ciudad;
+    private String email;
+    private String usuario;
+
+    @EJB
+    private RegistrarBeanLocal registrarBean;
+
+    public String getNombres() {
+        return nombres;
     }
 
-    public int getText4() {
-        return text4;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
-    public void setText4(int text4) {
-        this.text4 = text4;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public int getText5() {
-        return text5;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
-    public void setText5(int text5) {
-        this.text5 = text5;
+    public int getEdad() {
+        return edad;
     }
 
-    public String getText6() {
-        return text6;
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 
-    public void setText6(String text6) {
-        this.text6 = text6;
+    public int getCedula() {
+        return cedula;
     }
 
-    public int getText7() {
-        return text7;
+    public void setCedula(int cedula) {
+        this.cedula = cedula;
     }
 
-    public void setText7(int text7) {
-        this.text7 = text7;
+    public int getTelefono() {
+        return telefono;
     }
 
-    public String getText8() {
-        return text8;
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
     }
 
-    public void setText8(String text8) {
-        this.text8 = text8;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public String getText9() {
-        return text9;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public void setText9(String text9) {
-        this.text9 = text9;
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 }
-    
