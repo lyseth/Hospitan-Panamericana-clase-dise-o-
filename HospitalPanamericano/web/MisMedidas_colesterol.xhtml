@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Nivel Coresterol</title>
+            </f:facet>
+        </h:head>
+
+        
+
+            <h:form>
+                <p:layout fullPage="true">
+                    <p:layoutUnit position="north" size="80" style="border:none">
+                        <p:breadCrumb style="width: 40%;background-color:#95a1f7; border-radius: 10px;position: absolute; margin-left: 390px">
+                            <p:menuitem value="Inicio" url="index.xhtml" />
+                            <p:menuitem value="Citas" url="cita_programada.xhtml" style="padding:4px; text-decoration:none; " />
+                            <p:menuitem value="Mis Medidas" url="indexMisMedidas.xhtml" style="padding:4px ; text-decoration:none;  " />
+                            <p:menuitem value="Resultados" url="#" style="padding:4px ; text-decoration:none"/>
+                            <p:menuitem value="Historial" url="#" style="padding:4px ; text-decoration:none"/>
+                            <p:menuitem value="Más +" url="#" style="padding:4px ; text-decoration: none"/>
+                        </p:breadCrumb>
+                      <p:graphicImage url="/Recursos/sesion_u.jpg" style="width: 30px; height: 30px; position: absolute;margin-top:8px;margin-left: 1200px  "/>
+
+                    </p:layoutUnit> 
+                    <!-- <p:layoutUnit position="south" size="50" style="border:none">
+                       </p:layoutUnit>-->
+
+                     <p:layoutUnit position="west" style="min-width:100px; max-width:330px; border-right-color:black; border-bottom:none; border-top:none " >
+                        <center>
+                            <p:commandButton value="Peso" actionListener="#{Medidas.getpeso}" style="width:60%; font-size: 15px; background-color:#95a1f7; margin-bottom: 4%;border-radius:10px 10px 10px 10px" immediate="true"/>
+                            <p:commandButton value="Nivel Colesterol" actionListener="#{Medidas.getnivelColesterol}" style="width:60%; font-size: 15px; background-color:#95a1f7; margin-bottom: 4%;border-radius:10px 10px 10px 10px" immediate="true"/>
+
+                            <h:panelGrid columns="2" cellpadding="5" style="margin-top:18%;margin-bottom: 13%" >
+                                <p:calendar value="#{calendario.Calendario(calendar)}" mode="inline" />
+                            </h:panelGrid>
+                            <p:graphicImage url="/recursos/facebook.png" style="width: 10%; height: 10% "/>
+                            <p:graphicImage url="/recursos/twitter.png" style="width: 10%; height: 10%"/>
+                            <p:graphicImage url="/recursos/instagram.png" style="width: 10%; height: 10%"/>
+                            <p:graphicImage url="/recursos/g_plus.png" style="width: 10%; height: 10%"/>
+                        </center>    
+                    </p:layoutUnit> 
+
+                    <p:layoutUnit position="center"  style="border:none" > 
+                        
+                        <h1 style="margin-top:-5px;margin-left:100px"> Mis Mediciones</h1>
+                       
+                       <p:chart type="line" model="#{chartView.dateModel}" style="width:600px; margin-left:25px; "/>
+                         <br />
+                       
+                         <br />
+                          <p style="margin-left:5%">
+                            Seleccione su Nivel De Coresterol:</p>
+                        <select name="Nivel" style="width: 15%;margin-left:7%">
+                            <option selected="componente1"></option>  
+                            <option> 20 </option>
+                            <option> 34 </option>
+                            <option> 60 </option>
+                        </select>
+                         <p:commandButton value="Actualizar" actionListener="#{Medidas.getpeso}" style="width:15%; font-size: 15px; background-color:#95a1f7; margin-bottom: 4%;border-radius:10px 10px 10px 10px; margin-left:25px;" immediate="true"/>
+                        
+                        <table style="background-color:#95a1f7;padding:2%; margin-left:56%;position: fixed; margin-top:-20%; border-radius:25px">
+                            <tr>
+                                <th colspan="2" style="padding-bottom:3% ">
+                                    Línea de atención <br/>al usuario
+                                </th>
+
+                            </tr>
+                            <tr style="padding-bottom:3%">
+                                <td>
+                                    <p:graphicImage url="/recursos/telefono.png" style=" padding-right:2%;width: 20px; height: 20px "/>
+                                </td>
+                                <td>Línea Nacional<br/>
+                                    5555 55555</td>
+                            </tr>
+                            <tr style="padding-bottom:3%">
+                                <td>
+                                    <p:graphicImage url="/recursos/telefono.png" style="padding-right:2%;width: 20px; height: 20px "/>
+                                </td>
+                                <td>Bogotá<br/>
+                                    3333 33333</td>    
+                            </tr>
+                            <tr style="padding-bottom:3%">
+                                <td>
+                                    <p:graphicImage url="/recursos/calendario.png" style="padding-right:2%;width: 20px; height: 20px "/>
+                                </td>
+                                <td>Solicitar cita<br/>
+                                    4444 44444</td>    
+                            </tr>
+                        </table>
+                        
+                        <h6 style="margin-top:15%; margin-left:35%">Copyright
+                            <p:graphicImage url="/recursos/Copyright.png" style="width: 2%; height: 2% "/> 216</h6>
+                    </p:layoutUnit> 
+
+                </p:layout> 
+            </h:form>
+        
+
+    </f:view>
+</html>
+
