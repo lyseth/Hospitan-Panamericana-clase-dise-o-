@@ -59,9 +59,9 @@ public class selec_especialista {
         return categorias;
     }
 
-    public void setCategorias(List<SelectItem> categorias) {
+    /*public void setCategorias(List<SelectItem> categorias) {
         this.categorias = categorias;
-    }
+    }*/
 
     public String getSeleccion() {
         return seleccion;
