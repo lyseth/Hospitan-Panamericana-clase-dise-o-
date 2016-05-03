@@ -10,31 +10,34 @@ package Entidades;
  * @author DT8
  */
 public class RegistroVO {
-    private String nombre;
-    private String apelido;
+    private String nombres;
+    private String apellidos;
     private int edad;
     private int cedula;
     private int telefono;
     private String direccion;
     private String ciudad;
+    private String email;
+    private String usuario;
+    
 
-    public String getNombre() {
-        return nombre;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
-    public String getApelido() {
-        return apelido;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setApelido(String apelido) {
-        this.apelido = apelido;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
-    public int getEdad() {
+        public int getEdad() {
         return edad;
     }
 
@@ -73,5 +76,21 @@ public class RegistroVO {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-    
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
 }
