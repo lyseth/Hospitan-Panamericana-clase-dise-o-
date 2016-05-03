@@ -44,7 +44,7 @@ public class Login {
         if (autenticacionBean.autenticar(usuario,password)){
         
              message = new FacesMessage(FacesMessage.SEVERITY_INFO, "¡Bienvienido!", usuario);
-            return "inicio"; //pagina inicio
+            return "indexIniciopag"; //pagina inicio
         } else {
 
             message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "No son validos los datos");
