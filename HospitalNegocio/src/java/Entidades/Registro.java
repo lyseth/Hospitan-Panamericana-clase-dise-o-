@@ -44,6 +44,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Registro.findByPassword", query = "SELECT r FROM Registro r WHERE r.password = :password")})
 public class Registro implements Serializable {
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "registroCedula")
+    private List<DatosAdicionales> datosAdicionalesList;
+
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
@@ -243,6 +246,14 @@ public class Registro implements Serializable {
     @Override
     public String toString() {
         return "Entidades.Registro[ id=" + id + " ]";
+    }
+
+    public List<DatosAdicionales> getDatosAdicionalesList() {
+        return datosAdicionalesList;
+    }
+
+    public void setDatosAdicionalesList(List<DatosAdicionales> datosAdicionalesList) {
+        this.datosAdicionalesList = datosAdicionalesList;
     }
     
 }
