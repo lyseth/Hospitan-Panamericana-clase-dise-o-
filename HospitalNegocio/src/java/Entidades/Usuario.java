@@ -36,6 +36,9 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Usuario implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioIdUsuario")
+    private List<MedidasColes> medidasColesList;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioIdUsuario")
     private List<Citas> citasList;
 
     private static final long serialVersionUID = 1L;
@@ -104,6 +107,14 @@ public class Usuario implements Serializable {
 
     public void setCitasList(List<Citas> citasList) {
         this.citasList = citasList;
+    }
+
+    public List<MedidasColes> getMedidasColesList() {
+        return medidasColesList;
+    }
+
+    public void setMedidasColesList(List<MedidasColes> medidasColesList) {
+        this.medidasColesList = medidasColesList;
     }
     
 }
