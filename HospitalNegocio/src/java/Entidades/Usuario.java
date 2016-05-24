@@ -35,6 +35,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Usuario.findByIdUsuario", query = "SELECT u FROM Usuario u WHERE u.idUsuario = :idUsuario")})
 public class Usuario implements Serializable {
 
+    @OneToMany(mappedBy = "usuarioIdUsuario")
+    private List<MedidasPeso> medidasPesoList;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioIdUsuario")
     private List<MedidasColes> medidasColesList;
 
@@ -115,6 +118,14 @@ public class Usuario implements Serializable {
 
     public void setMedidasColesList(List<MedidasColes> medidasColesList) {
         this.medidasColesList = medidasColesList;
+    }
+
+    public List<MedidasPeso> getMedidasPesoList() {
+        return medidasPesoList;
+    }
+
+    public void setMedidasPesoList(List<MedidasPeso> medidasPesoList) {
+        this.medidasPesoList = medidasPesoList;
     }
     
 }
