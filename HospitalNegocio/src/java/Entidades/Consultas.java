@@ -6,6 +6,7 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +16,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -26,6 +28,9 @@ import javax.validation.constraints.NotNull;
     @NamedQuery(name = "Consultas.findAll", query = "SELECT c FROM Consultas c"),
     @NamedQuery(name = "Consultas.findByIdConsulata", query = "SELECT c FROM Consultas c WHERE c.idConsulata = :idConsulata")})
 public class Consultas implements Serializable {
+
+    @OneToMany(mappedBy = "consultasIdConsulata")
+    private Collection<ResultadosClinicos> resultadosClinicosCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -115,6 +120,14 @@ public class Consultas implements Serializable {
     @Override
     public String toString() {
         return "Entidades.Consultas[ idConsulata=" + idConsulata + " ]";
+    }
+
+    public Collection<ResultadosClinicos> getResultadosClinicosCollection() {
+        return resultadosClinicosCollection;
+    }
+
+    public void setResultadosClinicosCollection(Collection<ResultadosClinicos> resultadosClinicosCollection) {
+        this.resultadosClinicosCollection = resultadosClinicosCollection;
     }
     
 }

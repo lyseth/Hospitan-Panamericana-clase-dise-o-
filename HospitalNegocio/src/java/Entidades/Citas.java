@@ -208,7 +208,6 @@ public class Citas implements Serializable {
         }
         return true;
     }
-    
     public String toString2() {
         return "Entidades.Citas[ numRadicado=" + numRadicado + " ]";
     }
