@@ -8,6 +8,7 @@ package Entidades;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -35,6 +37,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Especialistas.findByNombres", query = "SELECT e FROM Especialistas e WHERE e.nombres = :nombres"),
     @NamedQuery(name = "Especialistas.findByApeliidos", query = "SELECT e FROM Especialistas e WHERE e.apeliidos = :apeliidos")})
 public class Especialistas implements Serializable {
+
+    @OneToMany(mappedBy = "especialistasCodRegMedico")
+    private List<HistorialesMedicos> historialesMedicosList;
 
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -135,6 +140,14 @@ public class Especialistas implements Serializable {
     @Override
     public String toString() {
         return "Entidades.Especialistas[ codRegMedico=" + codRegMedico + " ]";
+    }
+
+    public List<HistorialesMedicos> getHistorialesMedicosList() {
+        return historialesMedicosList;
+    }
+
+    public void setHistorialesMedicosList(List<HistorialesMedicos> historialesMedicosList) {
+        this.historialesMedicosList = historialesMedicosList;
     }
     
 }
