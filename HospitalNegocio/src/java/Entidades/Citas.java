@@ -9,7 +9,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,6 +19,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -39,6 +42,15 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Citas.findByTipoCita", query = "SELECT c FROM Citas c WHERE c.tipoCita = :tipoCita"),
     @NamedQuery(name = "Citas.findByEspecialistasCodRegMedico", query = "SELECT c FROM Citas c WHERE c.especialistasCodRegMedico = :especialistasCodRegMedico")})
 public class Citas implements Serializable {
+
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 15)
+    @Column(name = "NUM_RADICADO")
+    private String numRadicado;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "citasNumRadicado")
+    private List<Consultas> consultasList;
 
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -156,6 +168,49 @@ public class Citas implements Serializable {
     @Override
     public String toString() {
         return "Entidades.Citas[ idCita=" + idCita + " ]";
+    }
+
+    public Citas(String numRadicado) {
+        this.numRadicado = numRadicado;
+    }
+
+    public String getNumRadicado() {
+        return numRadicado;
+    }
+
+    public void setNumRadicado(String numRadicado) {
+        this.numRadicado = numRadicado;
+    }
+
+    public List<Consultas> getConsultasList() {
+        return consultasList;
+    }
+
+    public void setConsultasList(List<Consultas> consultasList) {
+        this.consultasList = consultasList;
+    }
+
+    public int hashCode2() {
+        int hash2 = 0;
+        hash2 += (numRadicado != null ? numRadicado.hashCode() : 0);
+        return hash2;
+    }
+
+    
+    public boolean equals2(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Citas)) {
+            return false;
+        }
+        Citas other = (Citas) object;
+        if ((this.numRadicado == null && other.numRadicado != null) || (this.numRadicado != null && !this.numRadicado.equals(other.numRadicado))) {
+            return false;
+        }
+        return true;
+    }
+    
+    public String toString2() {
+        return "Entidades.Citas[ numRadicado=" + numRadicado + " ]";
     }
     
 }
