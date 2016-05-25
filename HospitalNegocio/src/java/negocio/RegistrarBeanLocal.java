@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package negocio;
-import Entidades.Registro;
 import Entidades.RegistroVO;
 import javax.ejb.Local;
 
@@ -15,9 +14,9 @@ import javax.ejb.Local;
 
  @Local
 public interface RegistrarBeanLocal {
-    public boolean registrar(Registro registro);
+    public boolean registrar(RegistroVO nombre);
     public String obtenerRegistro();
 
-    public boolean registrar(String nombre,String apelido,int edad,int cedula,int telefono,String direccion,String ciudad,String email);
+    public boolean registrar(String nombre,String apelido,int eda,int cedula,int telefono,String direccion,String ciudad);
 }   
 

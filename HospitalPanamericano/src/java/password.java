@@ -1,4 +1,4 @@
-package contraseña;
+package org.primefaces.showcase.view.input;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean

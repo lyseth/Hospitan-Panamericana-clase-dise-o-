@@ -5,12 +5,8 @@
  */
 package negocio;
 
-import Entidades.Registro;
 import Entidades.RegistroVO;
-import integracion.RegistroFacadeLocal;
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import org.hibernate.validator.constraints.Email;
 
 /**
  *
@@ -19,20 +15,11 @@ import org.hibernate.validator.constraints.Email;
 @Stateless
 public class RegistrarBean implements RegistrarBeanLocal{
 
-    @EJB
-    private RegistroFacadeLocal fachadaRegistro;
+    public boolean registrar(RegistroVO nombre) {
+
     
-    public boolean registrar(Registro registro) {
-        
-        //VALIDACIONES Y LOGICA
-        if(!registro.getEmail().endsWith(".com")){ 
-        
-            fachadaRegistro.create(registro);
-        }
-        
-        return true;
-        
-    }
+return true;
+}
 
     @Override
     public String obtenerRegistro() {
@@ -40,9 +27,8 @@ public class RegistrarBean implements RegistrarBeanLocal{
     }
 
     @Override
-    public boolean registrar(String nombre, String apelido, int edad, int cedula, int telefono, String direccion, String ciudad, String email) {
-    return true;
+    public boolean registrar(String nombre, String apelido, int eda, int cedula, int telefono, String direccion, String ciudad) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-   
 }

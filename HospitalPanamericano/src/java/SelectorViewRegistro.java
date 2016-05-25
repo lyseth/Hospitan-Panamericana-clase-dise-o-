@@ -16,7 +16,6 @@ public class SelectorViewRegistro {
     private String ciudad;
     private String email;
     private String usuario;
-    
 
     @EJB
     private RegistrarBeanLocal registrarBean;
