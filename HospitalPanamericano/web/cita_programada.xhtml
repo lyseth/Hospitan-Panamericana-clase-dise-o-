@@ -15,26 +15,26 @@
 
             <h:form>
                 <p:layout fullPage="true">
-                   <p:layoutUnit position="north" size="80" style="border:none">
-                        <p:breadCrumb style="width: 40%;background-color:#95a1f7; border-radius: 10px;position: absolute; margin-left: 390px">
+                    <p:layoutUnit position="north" size="60" style="border:none">
+                        <p:breadCrumb style="width: 38%;background-color: white; border-radius: 10px;position: absolute; margin-left: 390px">
                             <p:menuitem value="Inicio" url="index.xhtml" />
-                            <p:menuitem value="Citas" url="cita_programada.xhtml" style="padding:4px; text-decoration:none; " />
-                            <p:menuitem value="Mis Medidas" url="indexMisMedidas.xhtml" style="padding:4px ; text-decoration:none;  " />
+                            <p:menuitem value="Citas" url="#" style="padding:4px; text-decoration:none; " />
+                            <p:menuitem value="Mis Medidas" url="#" style="padding:4px ; text-decoration:none;  " />
                             <p:menuitem value="Resultados" url="#" style="padding:4px ; text-decoration:none"/>
                             <p:menuitem value="Historial" url="#" style="padding:4px ; text-decoration:none"/>
                             <p:menuitem value="Más +" url="#" style="padding:4px ; text-decoration: none"/>
                         </p:breadCrumb>
-                      <p:graphicImage url="/Recursos/sesion_u.jpg" style="width: 30px; height: 30px; position: absolute;margin-top:8px;margin-left: 1200px  "/>
 
+                        <p:graphicImage url="/recursos/sesion_u.jpg" style="width: 30px; height: 30px; position: absolute;margin-top:8px;margin-left: 1300px  "/>
                     </p:layoutUnit> 
                     <!-- <p:layoutUnit position="south" size="50" style="border:none">
                        </p:layoutUnit>-->
 
-                    <p:layoutUnit position="west" style="min-width:30px; max-width:1330px; border-right-color:black; border-bottom:none; border-top:none " >
+                    <p:layoutUnit position="west" style="min-width:30px; max-width:330px; border-right-color:black; border-bottom:none; border-top:none " >
                         <center>
-                            <p:commandButton value="programar" actionListener="#{programar.getProgramar}" style="width:70%; font-size: 15px; margin-bottom: 4%;border-radius:10px 10px 0px 0px;background-color:#95a1f7" immediate="true"/>
-                            <p:commandButton value="cancelar" actionListener="#{programar.getCancelar}" style="width:70%; font-size: 15px;margin-bottom: 4%;background-color:#95a1f7 " immediate="true"/>
-                            <p:commandButton value="reagendar" actionListener="#{programar.getReagendar}" style="width:70%;font-size: 15px;margin-bottom: 4%;background-color:#95a1f7 "/>
+                            <p:commandButton value="programar" actionListener="#{programar.getProgramar}" style="width:70%; font-size: 15px; margin-bottom: 4%;border-radius:10px 10px 0px 0px" immediate="true"/>
+                            <p:commandButton value="cancelar" actionListener="#{programar.getCancelar}" style="width:70%; font-size: 15px;margin-bottom: 4% " immediate="true"/>
+                            <p:commandButton value="reagendar" actionListener="#{programar.getReagendar}" style="width:70%;font-size: 15px;margin-bottom: 4% "/>
                             <p:commandButton value="videollamada" style="width:70%; font-size: 15px;border-radius:0px 0px 10px 10px " disabled="true"/>
                             <h:panelGrid columns="2" cellpadding="5" style="margin-top:20%;margin-bottom: 15%" >
                                 <p:calendar value="#{calendario.Calendario(calendar)}" mode="inline" />
@@ -61,9 +61,18 @@
                             2) Seleccione la jornada en prefiere para su cita</p>
                         <select name="horario" style="width: 15%;margin-left:7%">
                             <option selected="componente1"></option>  
-                            <option> Mañana </option>
-                            <option> Tarde </option>
-                            <option> Noche </option>
+                            <option> 06:00 am </option>
+                            <option> 06:30 am </option>
+                            <option> 07:00 am </option>
+                            <option> 07:30 am </option>
+                            <option> 09:00 am </option>
+                            <option> 09:30 am </option>
+                            <option> 12:00 pm </option>
+                            <option> 12:30 pm </option>
+                            <option> 01:00 pm </option>
+                            <option> 01:30 pm </option>
+                            <option> 03:00 pm </option>
+                            <option> 03:30 pm </option>
                         </select>
                         <p:graphicImage url="/recursos/reloj.jpg" style="width:25px; height: 25px; position: absolute; padding-left: 1%"/>
                         <p style="margin-left:5%">
@@ -79,13 +88,13 @@
                         <p style="margin-left:5%">
                             4) Seleccione el especialista que desee</p>
 
-                        <p:multiSelectListbox value="#{selec_especialista.seleccion}" effect="slide" style="margin-left:7%">
+                        <p:multiSelectListbox  value="#{selec_especialista.seleccion}" style="margin-left:7%">
                             <f:selectItems value="#{selec_especialista.categorias}" />
                         </p:multiSelectListbox>
-                        <p:commandButton value="Guardar" icon="ui-icon-check" update="resultado" style="display:block;margin:10px 0;margin-left:7%;background-color:#95a1f7 " />
-                        <h:outputText id="resultado" value="Especialista: #{selec_especialista.seleccion}" style="display:block;margin-left:7% " />
-                        
-                        <table style="background-color:#95a1f7;padding:2%; margin-left:54%;position: fixed; margin-top:-30%; border-radius:25px">
+                        <p:commandButton value="Save" icon="ui-icon-check" update="out" style="display:block;margin:10px 0;margin-left:7% " />
+                        <h:outputText id="out" value="Value: #{selec_especialista.seleccion}" style="display:block;margin-left:7% " />
+
+                        <table style="background-color:#95a1f7;padding:2%; margin-left:56%;position: fixed; margin-top:-30%; border-radius:25px">
                             <tr>
                                 <th colspan="2" style="padding-bottom:3% ">
                                     Línea de atención <br/>al usuario
@@ -114,7 +123,7 @@
                                     4444 44444</td>    
                             </tr>
                         </table>
-                        
+
                         <h6 style="margin-top:15%; margin-left:35%">Copyright
                             <p:graphicImage url="/recursos/Copyright.png" style="width: 2%; height: 2% "/> 216</h6>
                     </p:layoutUnit> 
