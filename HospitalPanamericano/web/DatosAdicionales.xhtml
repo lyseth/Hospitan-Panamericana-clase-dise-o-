@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            <h:form>
+
+                <p:messages id="messages" />
+
+                <h:panelGrid columns="4" cellpadding="5">
+                    <h:outputLabel for="txt1" value="Prestadora de salud : *" style="font-family: Trebuchet MS;" />
+                    <h:selectOneMenu id="txt1" value="#{datos.text1}" required="true" label="Text 1">
+                        <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
+                        <f:selectItem itemLabel="Regimen contrivuido (EPS)" itemValue="Regimen contrivuido (EPS)" />
+                        <f:selectItem itemLabel="Regimen Subcidiado (SISBEN)" itemValue="Regimen Subcidiado (SISBEN)" />
+                    </h:selectOneMenu>
+                    <p:message for="txt1" />
+                    <h:outputText value="#{datos.text1}" />
+
+
+
+                    <h:outputLabel for="txt2" value="Antecedentes Medicos Familiares : *" style="font-family: Trebuchet MS;" />
+                    <h:selectOneMenu id="txt2" value="#{datos.text2}" required="true" label="Text 2">
+                        <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
+                        <f:selectItem itemLabel="SI" itemValue="SI" />
+                        <f:selectItem itemLabel="NO" itemValue="NO" />
+                    </h:selectOneMenu>
+                    <p:message for="txt2" />
+                    <h:outputText value="#{datos.text2}" />
+
+                    <h:outputLabel for="txt3" value="Cual enferemedad? : *" style="font-family: Trebuchet MS;" />
+                    <h:selectOneMenu id="txt3" value="#{datos.text3}" required="true" label="Text 3">
+                        <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
+                        <f:selectItem itemLabel="Cancer de estomago " itemValue="Cancer de estomago" />
+                        <f:selectItem itemLabel="Acondroplasia" itemValue="Acondroplasia" />
+                        <f:selectItem itemLabel="Fibrosis Quística" itemValue="Fibrosis Quística" />
+                    </h:selectOneMenu>
+
+                    <p:message for="txt3" />
+                    <h:outputText value="#{datos.text3}" />
+
+                    <h:outputLabel for="txt4" value="Tipo de sangre : *" style="font-family: Trebuchet MS;" />
+                    <h:selectOneMenu id="txt4" value="#{datos.text4}" required="true" label="Text 4">
+                        <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
+                        <f:selectItem itemLabel="A + " itemValue="A +" />
+                        <f:selectItem itemLabel="A -" itemValue="A -" />
+                        <f:selectItem itemLabel="B +" itemValue="B +" />
+                        <f:selectItem itemLabel="B -" itemValue="B -" />
+                        <f:selectItem itemLabel="AB + " itemValue="AB +" />
+                        <f:selectItem itemLabel="AB -" itemValue="AB -" />
+                        <f:selectItem itemLabel="O +" itemValue="O +" />
+                        <f:selectItem itemLabel="O -" itemValue="O -"  />
+
+                    </h:selectOneMenu>
+                    <p:message for="txt4" />
+                    <h:outputText value="#{datos.text4}" />
+
+
+                </h:panelGrid>
+
+
+                <h:panelGrid columns="5">
+                    <p:commandButton update="@(form)" value="All Forms" />
+
+                </h:panelGrid>
+            </h:form>
+
+        </h:body>
+
+    </f:view>
+</html>
+
