@@ -26,7 +26,7 @@
                             <p:menuitem value="Historial" url="#" style="padding:4px ; text-decoration:none"/>
                             <p:menuitem value="Más +" url="#" style="padding:4px ; text-decoration: none"/>
                         </p:breadCrumb>
-                      <p:graphicImage url="/Recursos/sesion_u.jpg" style="width: 30px; height: 30px; position: absolute;margin-top:8px;margin-left: 1200px  "/>
+                      <p:graphicImage url="/recursos/sesion_u.jpg" style="width: 30px; height: 30px; position: absolute;margin-top:8px;margin-left: 1200px  "/>
 
                     </p:layoutUnit> 
                     <!-- <p:layoutUnit position="south" size="50" style="border:none">
@@ -34,8 +34,8 @@
 
                      <p:layoutUnit position="west" style="min-width:100px; max-width:330px; border-right-color:black; border-bottom:none; border-top:none " >
                         <center>
-                            <p:commandButton value="Peso" actionListener="#{Medidas.getpeso}" style="width:60%; font-size: 15px; background-color:#95a1f7; margin-bottom: 4%;border-radius:10px 10px 10px 10px" immediate="true"/>
-                            <p:commandButton value="Nivel Colesterol" actionListener="#{Medidas.getnivelColesterol}" style="width:60%; font-size: 15px; background-color:#95a1f7; margin-bottom: 4%;border-radius:10px 10px 10px 10px" immediate="true"/>
+                             <p:button value="Peso" outcome="indexMisMedidas.xhtml" style="width:60%; font-size: 15px; background-color:#95a1f7; margin-bottom: 4%;border-radius:10px 10px 10px 10px"/>
+                            <p:button value="Nivel Colesterol" outcome="MisMedidas_colesterol.xhtml" style="width:60%; font-size: 15px; background-color:#95a1f7; margin-bottom: 4%;border-radius:10px 10px 10px 10px"/>
 
                             <h:panelGrid columns="2" cellpadding="5" style="margin-top:18%;margin-bottom: 13%" >
                                 <p:calendar value="#{calendario.Calendario(calendar)}" mode="inline" />
@@ -51,7 +51,7 @@
                         
                         <h1 style="margin-top:-5px;margin-left:100px"> Mis Mediciones</h1>
                        
-                       <p:chart type="line" model="#{chartView.dateModel}" style="width:600px; margin-left:25px; "/>
+                        <p:chart type="line" model="#{chartViewNivel.dateModel}" style="width:600px; margin-left:25px; "/>
                          <br />
                        
                          <br />
