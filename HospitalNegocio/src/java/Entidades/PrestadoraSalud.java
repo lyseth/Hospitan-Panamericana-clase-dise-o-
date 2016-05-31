@@ -38,7 +38,7 @@ public class PrestadoraSalud implements Serializable {
     @NotNull
     @Column(name = "ID_PRESTADORA")
     private Long idPrestadora;
-    @Size(max = 10)
+    @Size(max = 30)
     @Column(name = "TIPO_PRESTADORA")
     private String tipoPrestadora;
     @Size(max = 15)

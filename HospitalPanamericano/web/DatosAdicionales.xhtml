@@ -9,33 +9,33 @@
         <h:head>
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <title>PrimeFaces</title>
+                <title>Datos adicionales</title>
             </f:facet>
         </h:head>
 
         <h:body>
             <h:form>
-                  <p:layout fullPage="">
-                     
+                <p:layout fullPage="true">
+
                     <p:layoutUnit position="west" style="min-width:20px; max-width:300px; border-right-color:black; border-bottom:none; border-top:none " >
                         <center>
-                       
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <p:graphicImage url="/recursos/facebook.png" style="width: 15%; height: 15% "/>
-                        <p:graphicImage url="/recursos/twitter.png" style="width: 15%; height: 15%"/>
-                        <p:graphicImage url="/recursos/instagram.png" style="width: 15%; height: 15%"/>
-                        <p:graphicImage url="/recursos/g_plus.png" style="width: 15%; height: 15%"/>
+
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <p:graphicImage url="/recursos/facebook.png" style="width: 15%; height: 15% "/>
+                            <p:graphicImage url="/recursos/twitter.png" style="width: 15%; height: 15%"/>
+                            <p:graphicImage url="/recursos/instagram.png" style="width: 15%; height: 15%"/>
+                            <p:graphicImage url="/recursos/g_plus.png" style="width: 15%; height: 15%"/>
                         </center> 
-                        
+
                     </p:layoutUnit>
-<p:layoutUnit position="center"  style="border:none" >
-       <br />
-                  <h1 style="margin-top:-5px;margin-left:100px; font-family: Trebuchet MS; "> HOSPITAL PANAMERICANO </h1>
-                   <h2 style="margin-top:-5px;margin-left:100px; font-family: Trebuchet MS; "> Datos Adicionales </h2>
-                   <p:messages id="messages" />
+                    <p:layoutUnit position="center"  style="border:none" >
+                        <br />
+                        <h1 style="margin-top:-5px;margin-left:100px; font-family: Trebuchet MS; "> HOSPITAL PANAMERICANO </h1>
+                        <h2 style="margin-top:-5px;margin-left:100px; font-family: Trebuchet MS; "> Datos Adicionales </h2>
+                        <p:messages id="messages" />
 
                         <h:panelGrid columns="4" cellpadding="5">
                             <h:outputLabel for="txt1" value="Prestadora de salud : *" style="font-family: Trebuchet MS;" />
@@ -60,17 +60,17 @@
 
 
                             <h:outputLabel for="txt3" value="Cual enferemedad? : *" style="font-family: Trebuchet MS;" />
-                            <h:selectOneMenu id="txt3" value="#{datos.text3}" required="true" label="Cual enferemedad?">
+                            <h:selectOneMenu id="txt3" value="#{datos.adicionales.anteceFamiliares}" required="true" label="Cual enferemedad?">
                                 <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
                                 <f:selectItem itemLabel="Cancer de estomago " itemValue="Cancer de estomago" />
                                 <f:selectItem itemLabel="Acondroplasia" itemValue="Acondroplasia" />
                                 <f:selectItem itemLabel="Fibrosis Quística" itemValue="Fibrosis Quística" />
                             </h:selectOneMenu>
                             <p:message for="txt3" />
-                            <h:outputText value="#{datos.text3}" />
+                            <h:outputText value="#{datos.adicionales.anteceFamiliares}" />
 
                             <h:outputLabel for="txt4" value="Tipo de sangre : *" style="font-family: Trebuchet MS;" />
-                            <h:selectOneMenu id="txt4" value="#{datos.text4}" required="true" label="Tipo de sangre">
+                            <h:selectOneMenu id="txt4" value="#{datos.adicionales.tipoSangre}" required="true" label="Tipo de sangre">
                                 <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
                                 <f:selectItem itemLabel="A + " itemValue="A +" />
                                 <f:selectItem itemLabel="A -" itemValue="A -" />
@@ -83,7 +83,7 @@
 
                             </h:selectOneMenu>
                             <p:message for="txt4" />
-                            <h:outputText value="#{datos.text4}" />
+                            <h:outputText value="#{datos.adicionales.tipoSangre}" />
 
                             <h:outputLabel for="txt5" value="¿ Ha sufrido alguna enfermedad ? : *" style="font-family: Trebuchet MS;" />
                             <h:selectOneMenu id="txt5" value="#{datos.text5}" required="true" label="¿ Ha sufrido alguna enfermedad ?">
@@ -95,7 +95,7 @@
                             <h:outputText value="#{datos.text5}" />
 
                             <h:outputLabel for="txt6" value="Cual enferemedad? : *" style="font-family: Trebuchet MS;" />
-                            <h:selectOneMenu id="txt6" value="#{datos.text6}" required="true" label="Cual enferemedad?">
+                            <h:selectOneMenu id="txt6" value="#{datos.adicionales.enferDetectada}" required="true" label="Cual enferemedad?">
                                 <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
                                 <f:selectItem itemLabel="Cancer de estomago " itemValue="Cancer de estomago" />
                                 <f:selectItem itemLabel="Acondroplasia" itemValue="Acondroplasia" />
@@ -103,7 +103,7 @@
                             </h:selectOneMenu>
 
                             <p:message for="txt6" />
-                            <h:outputText value="#{datos.text6}" />
+                            <h:outputText value="#{datos.adicionales.enferDetectada}" />
 
 
                             <h:outputLabel for="txt7" value="¿ Es alergico a algun medicamento ? : *" style="font-family: Trebuchet MS;" />
@@ -116,34 +116,34 @@
                             <h:outputText value="#{datos.text7}" />
 
                             <h:outputLabel for="txt8" value="Cual Medicamento?: *" style="font-family: Trebuchet MS;" />
-                            <p:inputText id="txt8" value="#{datos.text8}" required="true" label="Cual Medicamento? " />
+                            <p:inputText id="txt8" value="#{datos.adicionales.medicAlergico}" required="true" label="Cual Medicamento? " />
                             <p:message for="txt8" />
-                            <h:outputText value="#{datos.text8}" />
+                            <h:outputText value="#{datos.adicionales.medicAlergico}" />
 
                             <h:outputLabel for="txt9" value="¿ Ha sido hospitalizado? : *" style="font-family: Trebuchet MS;" />
-                            <h:selectOneMenu id="txt9" value="#{datos.text9}" required="true" label="¿ Ha sido hospitalizado? ">
+                            <h:selectOneMenu id="txt9" value="#{datos.adicionales.hospitalizacion}" required="true" label="¿ Ha sido hospitalizado? ">
                                 <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
                                 <f:selectItem itemLabel="SI " itemValue="SI" />
                                 <f:selectItem itemLabel="NO" itemValue="NO" />
                             </h:selectOneMenu>
 
                             <p:message for="txt9" />
-                            <h:outputText value="#{datos.text9}" />
+                            <h:outputText value="#{datos.adicionales.hospitalizacion}" />
 
                             <br/>
                         </h:panelGrid>
-<h:panelGrid columns="5">
-    <p:commandButton update="@(form)" value="Guardar" style="background-color:#95a1f7" />
+                        <h:panelGrid columns="5">
+                            <p:commandButton update="@(form)" value="Guardar" style="background-color:#95a1f7" />
 
-                            </h:panelGrid>
+                        </h:panelGrid>
 
-        
+
 
                         <h6 style="margin-top:5%; margin-left:35%">Copyright
                             <p:graphicImage url="/recursos/Copyright.png" style="width: 2%; height: 2% "/> 216</h6>
-       
+
                     </p:layoutUnit>
-                    
+
                 </p:layout>
 
             </h:form>

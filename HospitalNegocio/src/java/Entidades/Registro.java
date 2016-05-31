@@ -34,8 +34,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Registro.findByCiudad", query = "SELECT r FROM Registro r WHERE r.ciudad = :ciudad"),
     @NamedQuery(name = "Registro.findByEmail", query = "SELECT r FROM Registro r WHERE r.email = :email"),
     @NamedQuery(name = "Registro.findByUsuario", query = "SELECT r FROM Registro r WHERE r.usuario = :usuario"),
-    @NamedQuery(name = "Registro.findByPassword", query = "SELECT r FROM Registro r WHERE r.password = :password"),
-    @NamedQuery(name = "Registro.findByUsuario&Password", query = "SELECT r FROM Registro r WHERE r.usuario = :usuario and r.password = :password")})
+    @NamedQuery(name = "Registro.findByPassword", query = "SELECT r FROM Registro r WHERE r.password = :password")})
 public class Registro implements Serializable {
 
     private static final long serialVersionUID = 1L;

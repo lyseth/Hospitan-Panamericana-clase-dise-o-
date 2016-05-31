@@ -6,6 +6,7 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -30,21 +31,35 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "DatosAdicionales.findAll", query = "SELECT d FROM DatosAdicionales d"),
     @NamedQuery(name = "DatosAdicionales.findByNumRegistro", query = "SELECT d FROM DatosAdicionales d WHERE d.numRegistro = :numRegistro"),
     @NamedQuery(name = "DatosAdicionales.findByAnteceFamiliares", query = "SELECT d FROM DatosAdicionales d WHERE d.anteceFamiliares = :anteceFamiliares"),
-    @NamedQuery(name = "DatosAdicionales.findByEnferDetectada", query = "SELECT d FROM DatosAdicionales d WHERE d.enferDetectada = :enferDetectada")})
+    @NamedQuery(name = "DatosAdicionales.findByEnferDetectada", query = "SELECT d FROM DatosAdicionales d WHERE d.enferDetectada = :enferDetectada"),
+    @NamedQuery(name = "DatosAdicionales.findByTipoSangre", query = "SELECT d FROM DatosAdicionales d WHERE d.tipoSangre = :tipoSangre"),
+    @NamedQuery(name = "DatosAdicionales.findByMedicAlergico", query = "SELECT d FROM DatosAdicionales d WHERE d.medicAlergico = :medicAlergico"),
+    @NamedQuery(name = "DatosAdicionales.findByHospitalizacion", query = "SELECT d FROM DatosAdicionales d WHERE d.hospitalizacion = :hospitalizacion")})
 public class DatosAdicionales implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "NUM_REGISTRO")
-    private Integer numRegistro;
+    private BigDecimal numRegistro;
     @Size(max = 20)
     @Column(name = "ANTECE_FAMILIARES")
     private String anteceFamiliares;
     @Size(max = 30)
     @Column(name = "ENFER_DETECTADA")
     private String enferDetectada;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 4)
+    @Column(name = "TIPO_SANGRE")
+    private String tipoSangre;
+    @Size(max = 20)
+    @Column(name = "MEDIC_ALERGICO")
+    private String medicAlergico;
+    @Size(max = 2)
+    private String hospitalizacion;
     @OneToMany(mappedBy = "datosAdicionalesNumRegistro")
     private List<HistorialesMedicos> historialesMedicosList;
     @JoinColumn(name = "PRESTADORA_SALUD_ID_PRESTADORA", referencedColumnName = "ID_PRESTADORA")
@@ -57,15 +72,20 @@ public class DatosAdicionales implements Serializable {
     public DatosAdicionales() {
     }
 
-    public DatosAdicionales(Integer numRegistro) {
+    public DatosAdicionales(BigDecimal numRegistro) {
         this.numRegistro = numRegistro;
     }
 
-    public Integer getNumRegistro() {
+    public DatosAdicionales(BigDecimal numRegistro, String tipoSangre) {
+        this.numRegistro = numRegistro;
+        this.tipoSangre = tipoSangre;
+    }
+
+    public BigDecimal getNumRegistro() {
         return numRegistro;
     }
 
-    public void setNumRegistro(Integer numRegistro) {
+    public void setNumRegistro(BigDecimal numRegistro) {
         this.numRegistro = numRegistro;
     }
 
@@ -83,6 +103,30 @@ public class DatosAdicionales implements Serializable {
 
     public void setEnferDetectada(String enferDetectada) {
         this.enferDetectada = enferDetectada;
+    }
+
+    public String getTipoSangre() {
+        return tipoSangre;
+    }
+
+    public void setTipoSangre(String tipoSangre) {
+        this.tipoSangre = tipoSangre;
+    }
+
+    public String getMedicAlergico() {
+        return medicAlergico;
+    }
+
+    public void setMedicAlergico(String medicAlergico) {
+        this.medicAlergico = medicAlergico;
+    }
+
+    public String getHospitalizacion() {
+        return hospitalizacion;
+    }
+
+    public void setHospitalizacion(String hospitalizacion) {
+        this.hospitalizacion = hospitalizacion;
     }
 
     public List<HistorialesMedicos> getHistorialesMedicosList() {
