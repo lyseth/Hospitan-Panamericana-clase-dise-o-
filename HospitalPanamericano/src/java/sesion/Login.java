@@ -1,57 +1,37 @@
 package sesion;
 
+import Entidades.Registro;
 import javax.ejb.EJB;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.event.ActionEvent;
 import negocio.AutenticacionBeanLocal;
-import org.primefaces.context.RequestContext;
+
 
 /**
  *
  * @author DT8
  */
-
-@ManagedBean
+@ManagedBean (name = "login")
 public class Login {
 
-    private String usuario;
-    private String password;
     @EJB
-    private AutenticacionBeanLocal autenticacionBean;
+     private AutenticacionBeanLocal sesion;
+    
+    
+    private String validar; 
+        Registro aut = new Registro();
 
-    public String getUsuario() {
-        return usuario;
+    public Registro getAut() {
+        return aut;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setAut(Registro aut) {
+        this.aut = aut;
     }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String login(ActionEvent event) { //cambiar a String y borrar elemento
-
-        RequestContext context = RequestContext.getCurrentInstance();
-        FacesMessage message = null;
-
-        if (autenticacionBean.autenticar(usuario,password)){
+public String valida(){
         
-             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "¡Bienvienido!", usuario);
-            return "indexIniciopag"; //pagina inicio
-        } else {
-
-            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "No son validos los datos");
-            return "index";
-        }
-
-        //FacesContext.getCurrentInstance().addMessage(null, message);
-        //context.addCallbackParam("loggedIn", loggedIn);
-    }
+        validar = sesion.existeUsuario(aut);
+            return "indexIniciopag";
+    
+        
+ }
 }

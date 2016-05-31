@@ -4,21 +4,33 @@
  * and open the template in the editor.
  */
 package VO;
+
+import java.io.Serializable;
+
 /**
  *
  * @author DT8
  */
-public class RegistroVO {
+public class RegistroVO implements Serializable {
+
+    private int cedula;
     private String nombres;
     private String apellidos;
     private int edad;
-    private int cedula;
     private int telefono;
     private String direccion;
     private String ciudad;
     private String email;
     private String usuario;
-    
+    private String password;
+
+    public int getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(int cedula) {
+        this.cedula = cedula;
+    }
 
     public String getNombres() {
         return nombres;
@@ -36,20 +48,12 @@ public class RegistroVO {
         this.apellidos = apellidos;
     }
 
-        public int getEdad() {
+    public int getEdad() {
         return edad;
     }
 
     public void setEdad(int edad) {
         this.edad = edad;
-    }
-
-    public int getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(int cedula) {
-        this.cedula = cedula;
     }
 
     public int getTelefono() {
@@ -90,6 +94,14 @@ public class RegistroVO {
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }

@@ -5,8 +5,11 @@
  */
 package negocio;
 
-import Entidades.UsuarioVO;
+import Entidades.Registro;
+import integracion.RegistroFacadeLocal;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
+
 
 /**
  *
@@ -14,27 +17,32 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class AutenticacionBean implements AutenticacionBeanLocal {
+@EJB
+        public RegistroFacadeLocal buscar;
+   
+    /*EntityManager em;
 
-    public boolean autenticar(UsuarioVO usuario) {
+    @Override
+    public String existeUsuario(Registro aut) {
+        Query query = em.createNamedQuery("Registro.findByUsuario&Password");
+        query.setParameter("usuario", aut.getUsuario());
+        query.setParameter("password", aut.getPassword());
+        if (query.getSingleResult() != null);
+        return "si";
 
-        if (usuario.getNick().equals("admin") && usuario.getContraseña().equals("admin")) {
-       return true;            
-//return "inicio";//inicio después de loguearse
-        } else {
-            return false;
-            //return "index";
+    }*/
+
+    @Override
+    public String existeUsuario(Registro aut) {
+         Registro registroConsulta;
+
+        registroConsulta = buscar.find(aut.getUsuario());
+        if (registroConsulta == null)
+           System.out.println("error de inicio");
+            return null;
         }
+               
     }
 
-    @Override
-    public String obtenerNombreUsuario() {
-        return "inicio";
-    }
 
-    @Override
-    public boolean autenticar(String usuario, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-}
-    
+ 

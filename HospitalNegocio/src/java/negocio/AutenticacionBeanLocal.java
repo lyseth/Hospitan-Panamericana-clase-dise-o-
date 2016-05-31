@@ -5,7 +5,7 @@
  */
 package negocio;
 
-import Entidades.UsuarioVO;
+import Entidades.Registro;
 import javax.ejb.Local;
 
 /**
@@ -14,8 +14,6 @@ import javax.ejb.Local;
  */
 @Local
 public interface AutenticacionBeanLocal {
-    public boolean autenticar(UsuarioVO usuario);
-    public String obtenerNombreUsuario();
 
-    public boolean autenticar(String usuario, String password);
+    public String existeUsuario(Registro aut);
 }
