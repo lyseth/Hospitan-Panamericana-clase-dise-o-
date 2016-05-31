@@ -15,19 +15,14 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author DT8
  */
 @Entity
-@Table(name = "ESPECIALIZACIONES")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Especializaciones.findAll", query = "SELECT e FROM Especializaciones e"),
     @NamedQuery(name = "Especializaciones.findByIdEspeci", query = "SELECT e FROM Especializaciones e WHERE e.idEspeci = :idEspeci"),
@@ -77,7 +72,6 @@ public class Especializaciones implements Serializable {
         this.tipoEspecializacion = tipoEspecializacion;
     }
 
-    @XmlTransient
     public List<Especialistas> getEspecialistasList() {
         return especialistasList;
     }

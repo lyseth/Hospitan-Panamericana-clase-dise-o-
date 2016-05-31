@@ -18,18 +18,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author DT8
  */
 @Entity
-@Table(name = "ESPECIALISTAS")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Especialistas.findAll", query = "SELECT e FROM Especialistas e"),
     @NamedQuery(name = "Especialistas.findByCodRegMedico", query = "SELECT e FROM Especialistas e WHERE e.codRegMedico = :codRegMedico"),
@@ -37,9 +33,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Especialistas.findByNombres", query = "SELECT e FROM Especialistas e WHERE e.nombres = :nombres"),
     @NamedQuery(name = "Especialistas.findByApeliidos", query = "SELECT e FROM Especialistas e WHERE e.apeliidos = :apeliidos")})
 public class Especialistas implements Serializable {
-
-    @OneToMany(mappedBy = "especialistasCodRegMedico")
-    private List<HistorialesMedicos> historialesMedicosList;
 
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -53,13 +46,13 @@ public class Especialistas implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 15)
-    @Column(name = "NOMBRES")
     private String nombres;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 15)
-    @Column(name = "APELIIDOS")
     private String apeliidos;
+    @OneToMany(mappedBy = "especialistasCodRegMedico")
+    private List<HistorialesMedicos> historialesMedicosList;
     @JoinColumn(name = "ESPECIALIZACIONES_ID_ESPECI", referencedColumnName = "ID_ESPECI")
     @ManyToOne(optional = false)
     private Especializaciones especializacionesIdEspeci;
@@ -109,6 +102,14 @@ public class Especialistas implements Serializable {
         this.apeliidos = apeliidos;
     }
 
+    public List<HistorialesMedicos> getHistorialesMedicosList() {
+        return historialesMedicosList;
+    }
+
+    public void setHistorialesMedicosList(List<HistorialesMedicos> historialesMedicosList) {
+        this.historialesMedicosList = historialesMedicosList;
+    }
+
     public Especializaciones getEspecializacionesIdEspeci() {
         return especializacionesIdEspeci;
     }
@@ -140,14 +141,6 @@ public class Especialistas implements Serializable {
     @Override
     public String toString() {
         return "Entidades.Especialistas[ codRegMedico=" + codRegMedico + " ]";
-    }
-
-    public List<HistorialesMedicos> getHistorialesMedicosList() {
-        return historialesMedicosList;
-    }
-
-    public void setHistorialesMedicosList(List<HistorialesMedicos> historialesMedicosList) {
-        this.historialesMedicosList = historialesMedicosList;
     }
     
 }

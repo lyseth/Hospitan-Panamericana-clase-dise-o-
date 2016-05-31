@@ -31,9 +31,6 @@ import javax.validation.constraints.NotNull;
     @NamedQuery(name = "ResultadosClinicos.findByCodResultado", query = "SELECT r FROM ResultadosClinicos r WHERE r.codResultado = :codResultado")})
 public class ResultadosClinicos implements Serializable {
 
-    @OneToMany(mappedBy = "resultadosClinicosCodResult")
-    private List<HistorialesMedicos> historialesMedicosList;
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -43,6 +40,8 @@ public class ResultadosClinicos implements Serializable {
     @Lob
     @Column(name = "RESULTADO_EXAMEN")
     private Serializable resultadoExamen;
+    @OneToMany(mappedBy = "resultadosClinicosCodResult")
+    private List<HistorialesMedicos> historialesMedicosList;
     @JoinColumn(name = "CONSULTAS_ID_CONSULATA", referencedColumnName = "ID_CONSULATA")
     @ManyToOne
     private Consultas consultasIdConsulata;
@@ -68,6 +67,14 @@ public class ResultadosClinicos implements Serializable {
 
     public void setResultadoExamen(Serializable resultadoExamen) {
         this.resultadoExamen = resultadoExamen;
+    }
+
+    public List<HistorialesMedicos> getHistorialesMedicosList() {
+        return historialesMedicosList;
+    }
+
+    public void setHistorialesMedicosList(List<HistorialesMedicos> historialesMedicosList) {
+        this.historialesMedicosList = historialesMedicosList;
     }
 
     public Consultas getConsultasIdConsulata() {
@@ -101,14 +108,6 @@ public class ResultadosClinicos implements Serializable {
     @Override
     public String toString() {
         return "Entidades.ResultadosClinicos[ codResultado=" + codResultado + " ]";
-    }
-
-    public List<HistorialesMedicos> getHistorialesMedicosList() {
-        return historialesMedicosList;
-    }
-
-    public void setHistorialesMedicosList(List<HistorialesMedicos> historialesMedicosList) {
-        this.historialesMedicosList = historialesMedicosList;
     }
     
 }

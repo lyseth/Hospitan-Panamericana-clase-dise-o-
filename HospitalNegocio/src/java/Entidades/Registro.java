@@ -7,13 +7,15 @@ package Entidades;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
@@ -63,10 +65,10 @@ public class Registro implements Serializable {
     @NotNull
     @Size(min = 1, max = 15)
     private String ciudad;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 40)
-    @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     private String email;
     @Basic(optional = false)
     @NotNull
@@ -76,6 +78,10 @@ public class Registro implements Serializable {
     @NotNull
     @Size(min = 1, max = 20)
     private String password;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "registroCedula")
+    private List<DatosAdicionales> datosAdicionalesList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "registroId")
+    private List<Usuario> usuarioList;
 
     public Registro() {
     }
@@ -175,6 +181,22 @@ public class Registro implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<DatosAdicionales> getDatosAdicionalesList() {
+        return datosAdicionalesList;
+    }
+
+    public void setDatosAdicionalesList(List<DatosAdicionales> datosAdicionalesList) {
+        this.datosAdicionalesList = datosAdicionalesList;
+    }
+
+    public List<Usuario> getUsuarioList() {
+        return usuarioList;
+    }
+
+    public void setUsuarioList(List<Usuario> usuarioList) {
+        this.usuarioList = usuarioList;
     }
 
     @Override

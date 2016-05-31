@@ -32,9 +32,6 @@ import javax.validation.constraints.NotNull;
     @NamedQuery(name = "MedidasColes.findByRecomenMedica", query = "SELECT m FROM MedidasColes m WHERE m.recomenMedica = :recomenMedica")})
 public class MedidasColes implements Serializable {
 
-    @OneToMany(mappedBy = "medidasColesIdMedida")
-    private List<HistorialesMedicos> historialesMedicosList;
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -49,6 +46,8 @@ public class MedidasColes implements Serializable {
     @NotNull
     @Column(name = "RECOMEN_MEDICA")
     private short recomenMedica;
+    @OneToMany(mappedBy = "medidasColesIdMedida")
+    private List<HistorialesMedicos> historialesMedicosList;
     @JoinColumn(name = "USUARIO_ID_USUARIO", referencedColumnName = "ID_USUARIO")
     @ManyToOne(optional = false)
     private Usuario usuarioIdUsuario;
@@ -90,6 +89,14 @@ public class MedidasColes implements Serializable {
         this.recomenMedica = recomenMedica;
     }
 
+    public List<HistorialesMedicos> getHistorialesMedicosList() {
+        return historialesMedicosList;
+    }
+
+    public void setHistorialesMedicosList(List<HistorialesMedicos> historialesMedicosList) {
+        this.historialesMedicosList = historialesMedicosList;
+    }
+
     public Usuario getUsuarioIdUsuario() {
         return usuarioIdUsuario;
     }
@@ -121,14 +128,6 @@ public class MedidasColes implements Serializable {
     @Override
     public String toString() {
         return "Entidades.MedidasColes[ idMedida=" + idMedida + " ]";
-    }
-
-    public List<HistorialesMedicos> getHistorialesMedicosList() {
-        return historialesMedicosList;
-    }
-
-    public void setHistorialesMedicosList(List<HistorialesMedicos> historialesMedicosList) {
-        this.historialesMedicosList = historialesMedicosList;
     }
     
 }

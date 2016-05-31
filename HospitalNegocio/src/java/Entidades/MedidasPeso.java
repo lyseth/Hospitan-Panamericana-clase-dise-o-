@@ -32,19 +32,18 @@ import javax.validation.constraints.NotNull;
     @NamedQuery(name = "MedidasPeso.findByRecomenMedica", query = "SELECT m FROM MedidasPeso m WHERE m.recomenMedica = :recomenMedica")})
 public class MedidasPeso implements Serializable {
 
-    @OneToMany(mappedBy = "medidasPesoIdMed")
-    private List<HistorialesMedicos> historialesMedicosList;
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID_MED")
-    private Short idMed;
+    private Long idMed;
     @Column(name = "VARIABLE_PESO")
     private Short variablePeso;
     @Column(name = "RECOMEN_MEDICA")
     private Short recomenMedica;
+    @OneToMany(mappedBy = "medidasPesoIdMed")
+    private List<HistorialesMedicos> historialesMedicosList;
     @JoinColumn(name = "USUARIO_ID_USUARIO", referencedColumnName = "ID_USUARIO")
     @ManyToOne
     private Usuario usuarioIdUsuario;
@@ -52,15 +51,15 @@ public class MedidasPeso implements Serializable {
     public MedidasPeso() {
     }
 
-    public MedidasPeso(Short idMed) {
+    public MedidasPeso(Long idMed) {
         this.idMed = idMed;
     }
 
-    public Short getIdMed() {
+    public Long getIdMed() {
         return idMed;
     }
 
-    public void setIdMed(Short idMed) {
+    public void setIdMed(Long idMed) {
         this.idMed = idMed;
     }
 
@@ -78,6 +77,14 @@ public class MedidasPeso implements Serializable {
 
     public void setRecomenMedica(Short recomenMedica) {
         this.recomenMedica = recomenMedica;
+    }
+
+    public List<HistorialesMedicos> getHistorialesMedicosList() {
+        return historialesMedicosList;
+    }
+
+    public void setHistorialesMedicosList(List<HistorialesMedicos> historialesMedicosList) {
+        this.historialesMedicosList = historialesMedicosList;
     }
 
     public Usuario getUsuarioIdUsuario() {
@@ -111,14 +118,6 @@ public class MedidasPeso implements Serializable {
     @Override
     public String toString() {
         return "Entidades.MedidasPeso[ idMed=" + idMed + " ]";
-    }
-
-    public List<HistorialesMedicos> getHistorialesMedicosList() {
-        return historialesMedicosList;
-    }
-
-    public void setHistorialesMedicosList(List<HistorialesMedicos> historialesMedicosList) {
-        this.historialesMedicosList = historialesMedicosList;
     }
     
 }

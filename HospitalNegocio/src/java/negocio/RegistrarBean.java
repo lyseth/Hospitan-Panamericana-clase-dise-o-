@@ -5,7 +5,9 @@
  */
 package negocio;
 
-import Entidades.RegistroVO;
+import Entidades.Registro;
+import integracion.RegistroFacadeLocal;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 /**
@@ -13,22 +15,22 @@ import javax.ejb.Stateless;
  * @author DT8
  */
 @Stateless
-public class RegistrarBean implements RegistrarBeanLocal{
+public class RegistrarBean implements RegistrarBeanLocal {
 
-    public boolean registrar(RegistroVO nombre) {
-
-    
-return true;
-}
+    @EJB
+    public RegistroFacadeLocal creandoRegistro;
 
     @Override
-    public String obtenerRegistro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public String CrearRegistro(Registro r) {
+        Registro registroConsulta;
 
-    @Override
-    public boolean registrar(String nombre, String apelido, int eda, int cedula, int telefono, String direccion, String ciudad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        registroConsulta = creandoRegistro.find(r.getCedula());
+        if (registroConsulta == null) 
+            creandoRegistro.create(r);
+         else 
+            System.out.println("ya existe el dato");
+        
+        return null;
     }
-
 }
+

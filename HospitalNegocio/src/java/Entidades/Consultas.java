@@ -6,7 +6,7 @@
 package Entidades;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,9 +29,6 @@ import javax.validation.constraints.NotNull;
     @NamedQuery(name = "Consultas.findByIdConsulata", query = "SELECT c FROM Consultas c WHERE c.idConsulata = :idConsulata")})
 public class Consultas implements Serializable {
 
-    @OneToMany(mappedBy = "consultasIdConsulata")
-    private Collection<ResultadosClinicos> resultadosClinicosCollection;
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -51,6 +48,8 @@ public class Consultas implements Serializable {
     @JoinColumn(name = "CITAS_NUM_RADICADO", referencedColumnName = "NUM_RADICADO")
     @ManyToOne(optional = false)
     private Citas citasNumRadicado;
+    @OneToMany(mappedBy = "consultasIdConsulata")
+    private List<ResultadosClinicos> resultadosClinicosList;
 
     public Consultas() {
     }
@@ -97,6 +96,14 @@ public class Consultas implements Serializable {
         this.citasNumRadicado = citasNumRadicado;
     }
 
+    public List<ResultadosClinicos> getResultadosClinicosList() {
+        return resultadosClinicosList;
+    }
+
+    public void setResultadosClinicosList(List<ResultadosClinicos> resultadosClinicosList) {
+        this.resultadosClinicosList = resultadosClinicosList;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -120,14 +127,6 @@ public class Consultas implements Serializable {
     @Override
     public String toString() {
         return "Entidades.Consultas[ idConsulata=" + idConsulata + " ]";
-    }
-
-    public Collection<ResultadosClinicos> getResultadosClinicosCollection() {
-        return resultadosClinicosCollection;
-    }
-
-    public void setResultadosClinicosCollection(Collection<ResultadosClinicos> resultadosClinicosCollection) {
-        this.resultadosClinicosCollection = resultadosClinicosCollection;
     }
     
 }

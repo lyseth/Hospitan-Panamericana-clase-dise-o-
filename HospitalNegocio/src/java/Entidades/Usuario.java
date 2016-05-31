@@ -18,31 +18,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author DT8
  */
 @Entity
-@Table(name = "USUARIO")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
     @NamedQuery(name = "Usuario.findByIdUsuario", query = "SELECT u FROM Usuario u WHERE u.idUsuario = :idUsuario")})
 public class Usuario implements Serializable {
-
-    @OneToMany(mappedBy = "usuarioIdUsuario")
-    private List<MedidasPeso> medidasPesoList;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioIdUsuario")
-    private List<MedidasColes> medidasColesList;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioIdUsuario")
-    private List<Citas> citasList;
 
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -51,7 +37,13 @@ public class Usuario implements Serializable {
     @NotNull
     @Column(name = "ID_USUARIO")
     private BigDecimal idUsuario;
-    @JoinColumn(name = "REGISTRO_ID", referencedColumnName = "ID")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioIdUsuario")
+    private List<Citas> citasList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioIdUsuario")
+    private List<MedidasColes> medidasColesList;
+    @OneToMany(mappedBy = "usuarioIdUsuario")
+    private List<MedidasPeso> medidasPesoList;
+    @JoinColumn(name = "REGISTRO_ID", referencedColumnName = "CEDULA")
     @ManyToOne(optional = false)
     private Registro registroId;
 
@@ -68,6 +60,30 @@ public class Usuario implements Serializable {
 
     public void setIdUsuario(BigDecimal idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public List<Citas> getCitasList() {
+        return citasList;
+    }
+
+    public void setCitasList(List<Citas> citasList) {
+        this.citasList = citasList;
+    }
+
+    public List<MedidasColes> getMedidasColesList() {
+        return medidasColesList;
+    }
+
+    public void setMedidasColesList(List<MedidasColes> medidasColesList) {
+        this.medidasColesList = medidasColesList;
+    }
+
+    public List<MedidasPeso> getMedidasPesoList() {
+        return medidasPesoList;
+    }
+
+    public void setMedidasPesoList(List<MedidasPeso> medidasPesoList) {
+        this.medidasPesoList = medidasPesoList;
     }
 
     public Registro getRegistroId() {
@@ -101,31 +117,6 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "Entidades.Usuario[ idUsuario=" + idUsuario + " ]";
-    }
-
-    @XmlTransient
-    public List<Citas> getCitasList() {
-        return citasList;
-    }
-
-    public void setCitasList(List<Citas> citasList) {
-        this.citasList = citasList;
-    }
-
-    public List<MedidasColes> getMedidasColesList() {
-        return medidasColesList;
-    }
-
-    public void setMedidasColesList(List<MedidasColes> medidasColesList) {
-        this.medidasColesList = medidasColesList;
-    }
-
-    public List<MedidasPeso> getMedidasPesoList() {
-        return medidasPesoList;
-    }
-
-    public void setMedidasPesoList(List<MedidasPeso> medidasPesoList) {
-        this.medidasPesoList = medidasPesoList;
     }
     
 }

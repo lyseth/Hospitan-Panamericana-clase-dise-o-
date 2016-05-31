@@ -40,58 +40,58 @@
                         <p:messages id="messages"  showDetail="true" autoUpdate="true" /> 
 
                         <h:panelGrid columns="4" cellpadding="3" >
+                            <h:outputLabel for="cedula" value="Cedula: *" style="font-family: Trebuchet MS;" />
+                            <p:inputText id="cedula" value="#{selectorViewRegistro.registro.cedula}" required="true" label="Cedula" />
+                            <p:message for="cedula" />
+                            <h:outputText value="#{selectorViewRegistro.registro.cedula}" />
+
                             <h:outputLabel for="nombres" value="Nombres: *" style="font-family: Trebuchet MS;"/>
-                            <p:inputText id="nombres" value="#{selectorViewRegistro.nombres}" required="true" label="Nombres">
+                            <p:inputText id="nombres" value="#{selectorViewRegistro.registro.nombres}" required="true" label="Nombres">
                                 <f:validateLength minimum="2" />
 
                             </p:inputText>
                             <p:message for="nombres" />
-                            <h:outputText value="#{selectorViewRegistro.nombres}" />
+                            <h:outputText value="#{selectorViewRegistro.registro.nombres}" />
 
                             <h:outputLabel for="apellidos" value="Apellidos: *" style="font-family: Trebuchet MS;" />
-                            <p:inputText id="apellidos" value="#{selectorViewRegistro.apellidos}" required="true" label="Apellidos" />
+                            <p:inputText id="apellidos" value="#{selectorViewRegistro.registro.apellidos}" required="true" label="Apellidos" />
                             <p:message for="apellidos" />
-                            <h:outputText value="#{selectorViewRegistro.apellidos}" />
+                            <h:outputText value="#{selectorViewRegistro.registro.apellidos}" />
 
                             <h:outputLabel for="edad" value="Edad: *" style="font-family: Trebuchet MS;" />
-                            <p:inputText id="edad" value="#{selectorViewRegistro.edad}" required="true" label="Edad" />
+                            <p:inputText id="edad" value="#{selectorViewRegistro.registro.edad}" required="true" label="Edad" />
                             <p:message for="edad" />
-                            <h:outputText value="#{selectorViewRegistro.edad}" />
-
-                            <h:outputLabel for="cedula" value="Cedula: *" style="font-family: Trebuchet MS;" />
-                            <p:inputText id="cedula" value="#{selectorViewRegistro.cedula}" required="true" label="Cedula" />
-                            <p:message for="cedula" />
-                            <h:outputText value="#{selectorViewRegistro.cedula}" />
+                            <h:outputText value="#{selectorViewRegistro.registro.edad}" />
 
                             <h:outputLabel for="telefono" value="Telefono: * " style="font-family: Trebuchet MS;" />
-                            <p:inputText id="telefono" value="#{selectorViewRegistro.telefono}" required="true" label="Telefono" />
+                            <p:inputText id="telefono" value="#{selectorViewRegistro.registro.telefono}" required="true" label="Telefono" />
                             <p:message for="telefono" />
-                            <h:outputText value="#{selectorViewRegistro.telefono}" />
+                            <h:outputText value="#{selectorViewRegistro.registro.telefono}" />
 
                             <h:outputLabel for="direccion" value="Dirección: *" style="font-family: Trebuchet MS;"/>
-                            <p:inputText id="direccion" value="#{selectorViewRegistro.direccion}" required="true" label="Dirección" />
+                            <p:inputText id="direccion" value="#{selectorViewRegistro.registro.direccion}" required="true" label="Dirección" />
                             <p:message for="direccion" />
-                            <h:outputText value="#{selectorViewRegistro.direccion}" />
+                            <h:outputText value="#{selectorViewRegistro.registro.direccion}" />
 
                             <h:outputLabel for="ciudad" value="Ciudad: *" style="font-family: Trebuchet MS;" />
-                            <h:selectOneMenu id="ciudad" value="#{selectorViewRegistro.ciudad}" required="true" label="Ciudad">
+                            <h:selectOneMenu id="ciudad" value="#{selectorViewRegistro.registro.ciudad}" required="true" label="Ciudad">
                                 <f:selectItem itemLabel="Seleccione " itemValue="" noSelectionOption="true" />
                                 <f:selectItem itemLabel="Bogotá" itemValue="Bogotá" />
                                 <f:selectItem itemLabel="Medellin" itemValue="Medellin" />
                                 <f:selectItem itemLabel="Villavicencio" itemValue="Villavicencio" />
                             </h:selectOneMenu>
                             <p:message for="ciudad" />
-                            <h:outputText value="#{selectorViewRegistro.ciudad}" />
+                            <h:outputText value="#{selectorViewRegistro.registro.ciudad}" />
 
                             <h:outputLabel for="email" value="Email: *" style="font-family: Trebuchet MS;" />
-                            <p:inputText id="email" value="#{selectorViewRegistro.email}" required="true" label="Email" />
+                            <p:inputText id="email" value="#{selectorViewRegistro.registro.email}" required="true" label="Email" />
                             <p:message for="email" />
-                            <h:outputText value="#{selectorViewRegistro.email}" />
+                            <h:outputText value="#{selectorViewRegistro.registro.email}" />
 
                             <h:outputLabel for="nick" value="Nombre de usuario: *" style="font-family: Trebuchet MS;" />
-                            <p:inputText id="nick" value="#{selectorViewRegistro.usuario}" required="true" label="Nombre de usuario" />
+                            <p:inputText id="nick" value="#{selectorViewRegistro.registro.usuario}" required="true" label="Nombre de usuario" />
                             <p:message for="nick" />
-                            <h:outputText value="#{selectorViewRegistro.usuario}" />
+                            <h:outputText value="#{selectorViewRegistro.registro.usuario}" />
 
 
 
@@ -106,14 +106,14 @@
 
                         <h:panelGrid columns="2" id="matchGrid" cellpadding="5">                   
                             <h:outputLabel for="pwd1" value="Contraseña: *" style="font-family: Trebuchet MS;" />
-                            <p:password id="pwd1" value="#{password.password5}" match="pwd2" label="Contraseña" feedback="true" required="true" />
+                            <p:password id="pwd1" value="#{selectorViewRegistro.registro.password}" match="pwd2" label="Contraseña" feedback="true" required="true" />
 
                             <h:outputLabel for="pwd2" value="Confirmar contraseña: *" style="font-family: Trebuchet MS;" />
-                            <p:password id="pwd2" value="#{password.password5}" label="Confirmar contraseña" feedback="true" required="true"  />
+                            <p:password id="pwd2" value="#{selectorViewRegistro.registro.password}" label="Confirmar contraseña" feedback="true" required="true"  />
                         </h:panelGrid>
 
-                        <p:commandButton style="background-color:#95a1f7;" update="matchGrid" value="Registrar" />
-
+                        <p:commandButton style="background-color:#95a1f7;" value="Registrar" action="#{selectorViewRegistro.creacionRegistro()}"  />
+                        <p:button  style="margin-left:10px; background-color:#95a1f7; margin-top:auto" value="Ingresar" outcome="index.xhtml" />
                         <table style="background-color:#95a1f7;padding:2%; margin-left:56%;position: fixed; margin-top:-20%; border-radius:25px">
                             <tr>
                                 <th colspan="2" style="padding-bottom:3% ">

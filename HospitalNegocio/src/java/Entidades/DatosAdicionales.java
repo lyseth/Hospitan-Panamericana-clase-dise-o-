@@ -33,9 +33,6 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "DatosAdicionales.findByEnferDetectada", query = "SELECT d FROM DatosAdicionales d WHERE d.enferDetectada = :enferDetectada")})
 public class DatosAdicionales implements Serializable {
 
-    @OneToMany(mappedBy = "datosAdicionalesNumRegistro")
-    private List<HistorialesMedicos> historialesMedicosList;
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -48,6 +45,8 @@ public class DatosAdicionales implements Serializable {
     @Size(max = 30)
     @Column(name = "ENFER_DETECTADA")
     private String enferDetectada;
+    @OneToMany(mappedBy = "datosAdicionalesNumRegistro")
+    private List<HistorialesMedicos> historialesMedicosList;
     @JoinColumn(name = "PRESTADORA_SALUD_ID_PRESTADORA", referencedColumnName = "ID_PRESTADORA")
     @ManyToOne(optional = false)
     private PrestadoraSalud prestadoraSaludIdPrestadora;
@@ -84,6 +83,14 @@ public class DatosAdicionales implements Serializable {
 
     public void setEnferDetectada(String enferDetectada) {
         this.enferDetectada = enferDetectada;
+    }
+
+    public List<HistorialesMedicos> getHistorialesMedicosList() {
+        return historialesMedicosList;
+    }
+
+    public void setHistorialesMedicosList(List<HistorialesMedicos> historialesMedicosList) {
+        this.historialesMedicosList = historialesMedicosList;
     }
 
     public PrestadoraSalud getPrestadoraSaludIdPrestadora() {
@@ -125,14 +132,6 @@ public class DatosAdicionales implements Serializable {
     @Override
     public String toString() {
         return "Entidades.DatosAdicionales[ numRegistro=" + numRegistro + " ]";
-    }
-
-    public List<HistorialesMedicos> getHistorialesMedicosList() {
-        return historialesMedicosList;
-    }
-
-    public void setHistorialesMedicosList(List<HistorialesMedicos> historialesMedicosList) {
-        this.historialesMedicosList = historialesMedicosList;
     }
     
 }
