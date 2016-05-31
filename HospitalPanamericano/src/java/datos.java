@@ -11,11 +11,11 @@ public class datos {
     private String text3;
     private String text4;
     private String text5;
-     /*private String[] selectedConsoles;
-    private String[] selectedConsoles1;
-    private String[] selectedConsoles2;
-    private String[] selectedConsoles3;
-    private String[] selectedConsoles4; */
+    private String text6;
+    private String text7;
+    private String text8;
+    private String text9;
+    
     
     public String getText1() {
         return text1;
@@ -56,11 +56,40 @@ public class datos {
     public void setText5(String text5) {
         this.text5 = text5;
     }
-    
-    
 
-    
+    public String getText6() {
+        return text6;
+    }
 
+    public void setText6(String text6) {
+        this.text6 = text6;
+    }
+
+    public String getText7() {
+        return text7;
+    }
+
+    public void setText7(String text7) {
+        this.text7 = text7;
+    }
+
+    public String getText8() {
+        return text8;
+    }
+
+    public void setText8(String text8) {
+        this.text8 = text8;
+    }
+
+    public String getText9() {
+        return text9;
+    }
+
+    public void setText9(String text9) {
+        this.text9 = text9;
+    }
+    
+    
     
     }
 

@@ -15,65 +15,137 @@
 
         <h:body>
             <h:form>
+                  <p:layout fullPage="">
+                     
+                    <p:layoutUnit position="west" style="min-width:20px; max-width:300px; border-right-color:black; border-bottom:none; border-top:none " >
+                        <center>
+                       
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <p:graphicImage url="/recursos/facebook.png" style="width: 15%; height: 15% "/>
+                        <p:graphicImage url="/recursos/twitter.png" style="width: 15%; height: 15%"/>
+                        <p:graphicImage url="/recursos/instagram.png" style="width: 15%; height: 15%"/>
+                        <p:graphicImage url="/recursos/g_plus.png" style="width: 15%; height: 15%"/>
+                        </center> 
+                        
+                    </p:layoutUnit>
+<p:layoutUnit position="center"  style="border:none" >
+       <br />
+                  <h1 style="margin-top:-5px;margin-left:100px; font-family: Trebuchet MS; "> HOSPITAL PANAMERICANO </h1>
+                   <h2 style="margin-top:-5px;margin-left:100px; font-family: Trebuchet MS; "> Datos Adicionales </h2>
+                   <p:messages id="messages" />
 
-                <p:messages id="messages" />
-
-                <h:panelGrid columns="4" cellpadding="5">
-                    <h:outputLabel for="txt1" value="Prestadora de salud : *" style="font-family: Trebuchet MS;" />
-                    <h:selectOneMenu id="txt1" value="#{datos.text1}" required="true" label="Text 1">
-                        <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
-                        <f:selectItem itemLabel="Regimen contrivuido (EPS)" itemValue="Regimen contrivuido (EPS)" />
-                        <f:selectItem itemLabel="Regimen Subcidiado (SISBEN)" itemValue="Regimen Subcidiado (SISBEN)" />
-                    </h:selectOneMenu>
-                    <p:message for="txt1" />
-                    <h:outputText value="#{datos.text1}" />
-
-
-
-                    <h:outputLabel for="txt2" value="Antecedentes Medicos Familiares : *" style="font-family: Trebuchet MS;" />
-                    <h:selectOneMenu id="txt2" value="#{datos.text2}" required="true" label="Text 2">
-                        <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
-                        <f:selectItem itemLabel="SI" itemValue="SI" />
-                        <f:selectItem itemLabel="NO" itemValue="NO" />
-                    </h:selectOneMenu>
-                    <p:message for="txt2" />
-                    <h:outputText value="#{datos.text2}" />
-
-                    <h:outputLabel for="txt3" value="Cual enferemedad? : *" style="font-family: Trebuchet MS;" />
-                    <h:selectOneMenu id="txt3" value="#{datos.text3}" required="true" label="Text 3">
-                        <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
-                        <f:selectItem itemLabel="Cancer de estomago " itemValue="Cancer de estomago" />
-                        <f:selectItem itemLabel="Acondroplasia" itemValue="Acondroplasia" />
-                        <f:selectItem itemLabel="Fibrosis Quística" itemValue="Fibrosis Quística" />
-                    </h:selectOneMenu>
-
-                    <p:message for="txt3" />
-                    <h:outputText value="#{datos.text3}" />
-
-                    <h:outputLabel for="txt4" value="Tipo de sangre : *" style="font-family: Trebuchet MS;" />
-                    <h:selectOneMenu id="txt4" value="#{datos.text4}" required="true" label="Text 4">
-                        <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
-                        <f:selectItem itemLabel="A + " itemValue="A +" />
-                        <f:selectItem itemLabel="A -" itemValue="A -" />
-                        <f:selectItem itemLabel="B +" itemValue="B +" />
-                        <f:selectItem itemLabel="B -" itemValue="B -" />
-                        <f:selectItem itemLabel="AB + " itemValue="AB +" />
-                        <f:selectItem itemLabel="AB -" itemValue="AB -" />
-                        <f:selectItem itemLabel="O +" itemValue="O +" />
-                        <f:selectItem itemLabel="O -" itemValue="O -"  />
-
-                    </h:selectOneMenu>
-                    <p:message for="txt4" />
-                    <h:outputText value="#{datos.text4}" />
+                        <h:panelGrid columns="4" cellpadding="5">
+                            <h:outputLabel for="txt1" value="Prestadora de salud : *" style="font-family: Trebuchet MS;" />
+                            <h:selectOneMenu id="txt1" value="#{datos.text1}" required="true" label="Prestadora de salud">
+                                <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
+                                <f:selectItem itemLabel="Regimen contrivuido (EPS)" itemValue="Regimen contrivuido (EPS)" />
+                                <f:selectItem itemLabel="Regimen Subcidiado (SISBEN)" itemValue="Regimen Subcidiado (SISBEN)" />
+                            </h:selectOneMenu>
+                            <p:message for="txt1" />
+                            <h:outputText value="#{datos.text1}" />
 
 
-                </h:panelGrid>
+
+                            <h:outputLabel for="txt2" value="Antecedentes Medicos Familiares : *" style="font-family: Trebuchet MS;" />
+                            <h:selectOneMenu id="txt2" value="#{datos.text2}" required="true" label="Antecedentes Medicos Familiares">
+                                <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
+                                <f:selectItem itemLabel="SI" itemValue="SI" />
+                                <f:selectItem itemLabel="NO" itemValue="NO" />
+                            </h:selectOneMenu>
+                            <p:message for="txt2" />
+                            <h:outputText value="#{datos.text2}" />
 
 
-                <h:panelGrid columns="5">
-                    <p:commandButton update="@(form)" value="All Forms" />
+                            <h:outputLabel for="txt3" value="Cual enferemedad? : *" style="font-family: Trebuchet MS;" />
+                            <h:selectOneMenu id="txt3" value="#{datos.text3}" required="true" label="Cual enferemedad?">
+                                <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
+                                <f:selectItem itemLabel="Cancer de estomago " itemValue="Cancer de estomago" />
+                                <f:selectItem itemLabel="Acondroplasia" itemValue="Acondroplasia" />
+                                <f:selectItem itemLabel="Fibrosis Quística" itemValue="Fibrosis Quística" />
+                            </h:selectOneMenu>
+                            <p:message for="txt3" />
+                            <h:outputText value="#{datos.text3}" />
 
-                </h:panelGrid>
+                            <h:outputLabel for="txt4" value="Tipo de sangre : *" style="font-family: Trebuchet MS;" />
+                            <h:selectOneMenu id="txt4" value="#{datos.text4}" required="true" label="Tipo de sangre">
+                                <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
+                                <f:selectItem itemLabel="A + " itemValue="A +" />
+                                <f:selectItem itemLabel="A -" itemValue="A -" />
+                                <f:selectItem itemLabel="B +" itemValue="B +" />
+                                <f:selectItem itemLabel="B -" itemValue="B -" />
+                                <f:selectItem itemLabel="AB + " itemValue="AB +" />
+                                <f:selectItem itemLabel="AB -" itemValue="AB -" />
+                                <f:selectItem itemLabel="O +" itemValue="O +" />
+                                <f:selectItem itemLabel="O -" itemValue="O -"  />
+
+                            </h:selectOneMenu>
+                            <p:message for="txt4" />
+                            <h:outputText value="#{datos.text4}" />
+
+                            <h:outputLabel for="txt5" value="¿ Ha sufrido alguna enfermedad ? : *" style="font-family: Trebuchet MS;" />
+                            <h:selectOneMenu id="txt5" value="#{datos.text5}" required="true" label="¿ Ha sufrido alguna enfermedad ?">
+                                <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
+                                <f:selectItem itemLabel="SI" itemValue="SI" />
+                                <f:selectItem itemLabel="NO" itemValue="NO" />
+                            </h:selectOneMenu>
+                            <p:message for="txt5" />
+                            <h:outputText value="#{datos.text5}" />
+
+                            <h:outputLabel for="txt6" value="Cual enferemedad? : *" style="font-family: Trebuchet MS;" />
+                            <h:selectOneMenu id="txt6" value="#{datos.text6}" required="true" label="Cual enferemedad?">
+                                <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
+                                <f:selectItem itemLabel="Cancer de estomago " itemValue="Cancer de estomago" />
+                                <f:selectItem itemLabel="Acondroplasia" itemValue="Acondroplasia" />
+                                <f:selectItem itemLabel="Fibrosis Quística" itemValue="Fibrosis Quística" />
+                            </h:selectOneMenu>
+
+                            <p:message for="txt6" />
+                            <h:outputText value="#{datos.text6}" />
+
+
+                            <h:outputLabel for="txt7" value="¿ Es alergico a algun medicamento ? : *" style="font-family: Trebuchet MS;" />
+                            <h:selectOneMenu id="txt7" value="#{datos.text7}" required="true" label="¿ Es alergico a algun medicamento ?">
+                                <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
+                                <f:selectItem itemLabel="SI" itemValue="SI" />
+                                <f:selectItem itemLabel="NO" itemValue="NO" />
+                            </h:selectOneMenu>
+                            <p:message for="txt7" />
+                            <h:outputText value="#{datos.text7}" />
+
+                            <h:outputLabel for="txt8" value="Cual Medicamento?: *" style="font-family: Trebuchet MS;" />
+                            <p:inputText id="txt8" value="#{datos.text8}" required="true" label="Cual Medicamento? " />
+                            <p:message for="txt8" />
+                            <h:outputText value="#{datos.text8}" />
+
+                            <h:outputLabel for="txt9" value="¿ Ha sido hospitalizado? : *" style="font-family: Trebuchet MS;" />
+                            <h:selectOneMenu id="txt9" value="#{datos.text9}" required="true" label="¿ Ha sido hospitalizado? ">
+                                <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true" />
+                                <f:selectItem itemLabel="SI " itemValue="SI" />
+                                <f:selectItem itemLabel="NO" itemValue="NO" />
+                            </h:selectOneMenu>
+
+                            <p:message for="txt9" />
+                            <h:outputText value="#{datos.text9}" />
+
+                            <br/>
+                        </h:panelGrid>
+<h:panelGrid columns="5">
+    <p:commandButton update="@(form)" value="Guardar" style="background-color:#95a1f7" />
+
+                            </h:panelGrid>
+
+        
+
+                        <h6 style="margin-top:5%; margin-left:35%">Copyright
+                            <p:graphicImage url="/recursos/Copyright.png" style="width: 2%; height: 2% "/> 216</h6>
+       
+                    </p:layoutUnit>
+                    
+                </p:layout>
+
             </h:form>
 
         </h:body>
